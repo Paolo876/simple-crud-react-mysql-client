@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 import './App.scss';

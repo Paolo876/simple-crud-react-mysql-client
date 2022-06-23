@@ -18,7 +18,7 @@ export default function Signup() {
         password: Yup.string().min(6).max(20).required(),
     })
     const handleSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then((res) => {
+        axios.post("https://simple-crud-react-mysql.herokuapp.com/auth", data).then((res) => {
             if(res.data.error){
                 setError(res.data.error)
             } else {

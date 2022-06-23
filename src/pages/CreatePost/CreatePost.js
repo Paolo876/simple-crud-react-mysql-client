@@ -19,7 +19,7 @@ export default function CreatePost() {
     // formik already prevents default form submit behavior**
     const handleSubmit = (data) => {
 
-        axios.post("http://localhost:3001/posts", data,{
+        axios.post("https://simple-crud-react-mysql.herokuapp.com/posts", data,{
             headers: {
                 accessToken: sessionStorage.getItem("accessToken")
               }

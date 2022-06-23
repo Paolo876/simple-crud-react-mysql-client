@@ -9,14 +9,14 @@ export default function Home() {
   const navigate = useNavigate();
   const { user } = useAuthContext();
   useEffect(()=> {
-    axios.get("http://localhost:3001/posts").then( res => {
+    axios.get("https://simple-crud-react-mysql.herokuapp.com/posts").then( res => {
       setPostsList(res.data)
     })
   }, [])
 
   const handleLikeClick = (e, PostId, index) => {
     e.stopPropagation();
-    axios.post("http://localhost:3001/likes", {
+    axios.post("https://simple-crud-react-mysql.herokuapp.com/likes", {
       PostId
     },
     {

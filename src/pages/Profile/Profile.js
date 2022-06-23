@@ -16,7 +16,7 @@ export default function Profile() {
     if(parseInt(id) === user.id) {
         setData(user);
     } else {
-      axios.get(`http://localhost:3001/auth/profile/${id}`).then(res => {
+      axios.get(`https://simple-crud-react-mysql.herokuapp.com/auth/profile/${id}`).then(res => {
         if(!res.data.error){
           setData(res.data)
         } else {
@@ -25,7 +25,7 @@ export default function Profile() {
       });
     }
     // get user posts
-    axios.get(`http://localhost:3001/posts/user/${id}`).then(res => {
+    axios.get(`https://simple-crud-react-mysql.herokuapp.com/posts/user/${id}`).then(res => {
       if(!res.data.error){
         setPosts(res.data)
       } else {
@@ -47,7 +47,7 @@ export default function Profile() {
     e.preventDefault();
     if(oldPassword.trim().length !== 0 && newPassword.trim().length !== 0 && newPasswordVerify.trim().length !== 0) {
       if(newPassword === newPasswordVerify) {
-        axios.put("http://localhost:3001/auth/changepassword", {
+        axios.put("https://simple-crud-react-mysql.herokuapp.com/auth/changepassword", {
           oldPassword, newPassword
         },{
           headers: {

@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(()=> {
     const userToken = sessionStorage.getItem("accessToken")
     if(userToken) {
-      axios.get("http://localhost:3001/auth/authorize", {
+      axios.get("https://simple-crud-react-mysql.herokuapp.com/auth/authorize", {
         headers: {
           accessToken: userToken
         },

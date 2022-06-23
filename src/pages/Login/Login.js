@@ -10,7 +10,7 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/auth/login", { username, password })
+        axios.post("https://simple-crud-react-mysql.herokuapp.com/auth/login", { username, password })
             .then(
                 (res) => {
                 if(res.data.error) {

@@ -13,14 +13,14 @@ export default function Post() {
     const { user } = useAuthContext();
     const navigate = useNavigate();
     useEffect(()=> {
-        axios.get(`http://localhost:3001/posts/byId/${id}`).then(res => setData(res.data))
-        axios.get(`http://localhost:3001/comments/${id}`).then(res => setComments(res.data))
+        axios.get(`https://simple-crud-react-mysql.herokuapp.com/posts/byId/${id}`).then(res => setData(res.data))
+        axios.get(`https://simple-crud-react-mysql.herokuapp.com/comments/${id}`).then(res => setComments(res.data))
     }, [])
 
     // comment submit
     const handleSubmit = async (e) => {
       e.preventDefault();
-      axios.post(`http://localhost:3001/comments`, {
+      axios.post(`https://simple-crud-react-mysql.herokuapp.com/comments`, {
         comment: commentInput,
         PostId: id,
         UserId: user.id
@@ -38,7 +38,7 @@ export default function Post() {
       })
     }
     const deleteComment = (id) => {
-      axios.delete(`http://localhost:3001/comments/${id}`, {
+      axios.delete(`https://simple-crud-react-mysql.herokuapp.com/comments/${id}`, {
         headers: {
           accessToken: sessionStorage.getItem("accessToken")
         }
@@ -49,7 +49,7 @@ export default function Post() {
 
     const deletePost = () => {
       const PostId = data.id;
-      axios.delete(`http://localhost:3001/posts/${PostId}`, {
+      axios.delete(`https://simple-crud-react-mysql.herokuapp.com/posts/${PostId}`, {
         headers: {
           accessToken: sessionStorage.getItem("accessToken")
         }

@@ -1,0 +1,73 @@
+.create-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.create-post form {
+  margin-top: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 3px solid #0072eb;
+  border-radius: 5px;
+  padding: 2em;
+  text-align: left;
+}
+
+.create-post form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: .5em 0;
+  position: relative;
+}
+
+.create-post form label .error {
+  color: red;
+  font-style: italic;
+  position: absolute;
+  top: -1em;
+  right: .5em;
+  font-size: .9em;
+}
+
+.create-post form label span {
+  font-size: 1.1em;
+  margin-bottom: .2em;
+}
+
+.create-post form label input {
+  height: 1.5em;
+  width: 25em;
+  padding: .2em;
+  font-size: 1.1em;
+}
+
+.create-post form button {
+  outline: none;
+  border: none;
+  margin-top: 3em;
+  text-align: center;
+  background-color: #0072eb;
+  color: white;
+  padding: .75em 0;
+  border-radius: 5px;
+  opacity: .9;
+  font-size: 1em;
+}
+/*# sourceMappingURL=CreatePost.css.map */

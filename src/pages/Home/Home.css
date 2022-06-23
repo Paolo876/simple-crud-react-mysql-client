@@ -1,0 +1,61 @@
+.home ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 3em;
+}
+
+.home ul li {
+  border: 1px solid lightblue;
+  width: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.home ul li h4 {
+  background-color: #0072eb;
+  margin: 0;
+  padding: .75em;
+  color: white;
+  letter-spacing: .05em;
+  font-weight: 400;
+}
+
+.home ul li p.body {
+  margin: 4em 0;
+}
+
+.home ul li .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  background-color: #0072eb;
+  padding: 0 .5em;
+  color: white;
+  gap: 1em;
+  font-size: .9em;
+}
+/*# sourceMappingURL=Home.css.map */

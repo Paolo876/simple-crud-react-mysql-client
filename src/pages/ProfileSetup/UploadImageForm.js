@@ -3,7 +3,7 @@ import { IKContext, IKUpload } from "imagekitio-react";
 import defaultImage from "../../assets/default-profile.png";
 import "./UploadImageForm.scss";
 import axios from 'axios';
-
+import { domain } from '../../variables';
 export default function UploadImageForm({imageData, setImageData, imageLoading, setImageLoading}) {
   const [error, setError ] = useState(null);
 
@@ -12,13 +12,13 @@ export default function UploadImageForm({imageData, setImageData, imageLoading, 
     if(imageData) setImageLoading(false)
   },[imageData]);
 
-  const authenticationEndpoint = 'http://localhost:3001/imagekit';
+  const authenticationEndpoint = `${domain}/imagekit`;
   const publicKey = process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY;
   const urlEndpoint = process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT;
 
   const handleClick = async () => {
     setImageLoading(true)
-    axios.delete(`http://localhost:3001/imagekit/delete/${imageData.fileId}`, {
+    axios.delete(`${domain}/imagekit/delete/${imageData.fileId}`, {
       headers: { accessToken: sessionStorage.getItem("accessToken") }
     }).then(() => {
       setImageData(null)

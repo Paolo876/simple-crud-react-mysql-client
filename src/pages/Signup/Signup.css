@@ -1,15 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
 .signup-page {
-  border: 2px solid black;
+  border-radius: 25px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 2em auto;
-  padding: 1em 3em;
+  margin: 3em auto;
+  padding: 3em 5em;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .signup-page h3 {
   margin-bottom: 2em;
-  letter-spacing: .1em;
+  letter-spacing: .2em;
   font-size: 2em;
 }
 
@@ -34,28 +39,39 @@
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: left;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
   position: relative;
+}
+
+.signup-page form label span {
+  font-weight: 500;
+  margin-bottom: .2em;
+  letter-spacing: .05em;
 }
 
 .signup-page form label .error {
   position: absolute;
   color: red;
-  top: -1em;
+  top: 0em;
   font-style: italic;
-  right: 0;
+  right: .5em;
+  opacity: .8;
 }
 
 .signup-page form label input {
-  font-size: 1em;
-  padding: .25em;
   width: 25em;
+  letter-spacing: .02em;
 }
 
 .signup-page form button {
   margin-top: 5em;
-  font-size: 1em;
-  padding: .5em;
+  font-size: 1.1em;
+  padding: .8em;
+}
+
+.signup-page .redirect {
+  color: #14a190;
   font-weight: 500;
+  letter-spacing: .02em;
 }
 /*# sourceMappingURL=Signup.css.map */

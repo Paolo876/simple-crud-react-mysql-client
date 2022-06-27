@@ -1,25 +1,18 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { domain } from '../../variables';
 import "./Login.scss";
-import { useAuthContext } from '../../hooks/useAuthContext';
+import useAuthActions from '../../hooks/useAuthActions';
+
 export default function Login() {
+    const { login, isLoading, error} = useAuthActions();
+    const navigate = useNavigate();
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
-    const [ error, setError ] = useState(null);
-    const { dispatch } = useAuthContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://simple-crud-react-mysql.herokuapp.com/auth/login", { username, password })
-            .then(
-                (res) => {
-                if(res.data.error) {
-                    setError(res.data.error)
-                } else {
-                    sessionStorage.setItem("accessToken", res.data.accessToken) //save token to storage
-                    dispatch({type: 'LOGIN', payload: res.data})    //save data to context
-                }
-            })
+        login(`${domain}/auth/login`, { username, password });
     }
   return (
     <div className='login-page'>
@@ -45,8 +38,11 @@ export default function Login() {
                     />
             </label>
             {error && <p className="error">{error}</p>}
-            <button>LOGIN</button>
+            {!isLoading && <button className='submit-btn'>LOGIN</button>}
+            {isLoading && <button className='submit-btn'>LOGGING IN...</button>}
         </form>
+        <p>Not a user yet? <button onClick={() => navigate("/signup")} className="redirect">Click here to signup.</button></p>
+
     </div>
   )
 }

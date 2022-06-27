@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
+import { domain } from '../../variables';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import "./CreatePost.scss";
@@ -7,6 +9,11 @@ import axios from "axios";
 
 export default function CreatePost() {
     const navigate = useNavigate();
+    const { isProfileSetup } = useAuthContext();
+    
+    useEffect(()=>{
+        if(!isProfileSetup) navigate("/profile-setup")
+    }, [])
     const initialValues = {
         title:"",
         postText:"",
@@ -19,7 +26,7 @@ export default function CreatePost() {
     // formik already prevents default form submit behavior**
     const handleSubmit = (data) => {
 
-        axios.post("https://simple-crud-react-mysql.herokuapp.com/posts", data,{
+        axios.post(`${domain}/posts`, data,{
             headers: {
                 accessToken: sessionStorage.getItem("accessToken")
               }

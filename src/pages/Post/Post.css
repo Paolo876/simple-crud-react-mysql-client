@@ -90,5 +90,13 @@
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-bottom: 1em;
+  position: relative;
+}
+
+.post-page .section-2 ul li button {
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Post.css.map */

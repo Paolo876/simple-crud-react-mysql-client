@@ -1,23 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+@import "./variables.scss";
+
+
 /* css reset */
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+*,*::before,*::after{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
   scroll-behavior: smooth;
-}
 
+}
 a {
-  color: inherit;
-  /* blue colors for links too */
-  text-decoration: inherit;
-  /* no underline */
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
 
 ol, ul {
-  list-style: none;
+	list-style: none;
   color: inherit;
 }
 
@@ -25,18 +24,15 @@ img, picture {
   max-width: 100%;
   display: block;
 }
-
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
-
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-
 button {
   background-color: transparent;
   border-width: 0;
@@ -48,46 +44,42 @@ button {
   padding: 0;
   color: inherit;
   cursor: pointer;
-}
 
-button.submit-btn {
-  background-color: #2489c0;
-  color: white;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-  letter-spacing: .05em;
+  &.submit-btn{
+    background-color: $secondary-color;
+    color: white;
+    font-weight: 600;
+    font-family: $primary-font;
+    letter-spacing: .05em;
+  }
 }
-
-button:disabled {
+button:disabled{
   cursor: not-allowed;
   opacity: .75;
 }
 
 input {
   all: unset;
-  border: 1px solid #14a190;
+  border: 1px solid $primary-color;
   border-radius: 5px;
   font-size: 1.1em;
   font-weight: 300;
   padding: .5em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
+  box-sizing: border-box;
 
-input:focus {
-  border: 2px solid #14a190;
+  &:focus{
+    border: 2px solid $primary-color;
+    
+  }
 }
-
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
-
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
-  background-color: #d6d6d6;
+  font-family: $primary-font;
+  background-color: $gray-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/*# sourceMappingURL=index.css.map */

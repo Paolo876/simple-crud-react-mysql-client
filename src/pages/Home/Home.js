@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from "../../hooks/useAuthContext"
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { domain } from '../../variables';
 import axios from 'axios';
 import "./Home.scss";
 
 export default function Home() {
   const [ postsList, setPostsList ] = useState(null);
   const navigate = useNavigate();
-  const { user } = useAuthContext();
+  const { user, isProfileSetup } = useAuthContext();
+  
   useEffect(()=> {
-    axios.get("https://simple-crud-react-mysql.herokuapp.com/posts").then( res => {
+    if(!isProfileSetup) navigate("/profile-setup")
+    axios.get(`${domain}/posts`).then( res => {
       setPostsList(res.data)
     })
   }, [])
 
   const handleLikeClick = (e, PostId, index) => {
     e.stopPropagation();
-    axios.post("https://simple-crud-react-mysql.herokuapp.com/likes", {
+    axios.post(`${domain}/likes`, {
       PostId
     },
     {

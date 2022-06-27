@@ -1,22 +1,28 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { domain } from '../../variables';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 
 export default function Profile() {
   const navigate = useNavigate();
-  const { user } = useAuthContext();
+  const { user, isProfileSetup } = useAuthContext();
   const { id } = useParams();
   const [ error, setError ] = useState(null);
   const [ data, setData ] = useState(null);
   const [ posts, setPosts ] = useState([]);
   const [ showInput, setShowInput ] = useState(false);
+
+  useEffect(()=> {
+    if(!isProfileSetup) navigate("/profile-setup")
+  }, [])
+
   useEffect(()=> {
     // get user info
     if(parseInt(id) === user.id) {
         setData(user);
     } else {
-      axios.get(`https://simple-crud-react-mysql.herokuapp.com/auth/profile/${id}`).then(res => {
+      axios.get(`${domain}/auth/profile/${id}`).then(res => {
         if(!res.data.error){
           setData(res.data)
         } else {
@@ -25,7 +31,7 @@ export default function Profile() {
       });
     }
     // get user posts
-    axios.get(`https://simple-crud-react-mysql.herokuapp.com/posts/user/${id}`).then(res => {
+    axios.get(`${domain}/posts/user/${id}`).then(res => {
       if(!res.data.error){
         setPosts(res.data)
       } else {
@@ -47,7 +53,7 @@ export default function Profile() {
     e.preventDefault();
     if(oldPassword.trim().length !== 0 && newPassword.trim().length !== 0 && newPasswordVerify.trim().length !== 0) {
       if(newPassword === newPasswordVerify) {
-        axios.put("https://simple-crud-react-mysql.herokuapp.com/auth/changepassword", {
+        axios.put(`${domain}/auth/changepassword`, {
           oldPassword, newPassword
         },{
           headers: {

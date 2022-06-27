@@ -1,19 +1,25 @@
 import { createContext, useReducer, useEffect } from 'react'
 import axios from 'axios'
-
+import { domain } from '../variables'
 export const AuthContext = createContext()
 
 export const authReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
+      sessionStorage.setItem("accessToken", action.payload.accessToken)
       return { ...state, user: action.payload}
     case 'LOGOUT':
       sessionStorage.removeItem("accessToken")
-      return { ...state, user: null }
+      return { ...state, user: null, isProfileSetup: false }
+    case 'IS_PROFILE_SETUP':
+      if(action.payload){
+        if(action.payload.accessToken) sessionStorage.setItem("accessToken", action.payload.accessToken);
+        return { ...state, isProfileSetup: true, user: {...state.user, ...action.payload} }
+      } else {
+        return { ...state, isProfileSetup: action.payload }
+      }
     case 'AUTH_IS_READY':
       return { ...state, user: action.payload, authIsReady: true }
-    // case 'ALLOW_LOGIN':
-    //   return { ...state, isLoginAllowed: action.payload }
     default:
       return state
   }
@@ -24,28 +30,20 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { 
     user: null,
     authIsReady: false,
-    // isLoginAllowed: false,
+    isProfileSetup: false,
   })
 
-//   useEffect(() => {
-//     const unsub = onAuthStateChanged(auth, user => {
-//       dispatch({ type: 'AUTH_IS_READY', payload: user })
-//     })
-
-//     return () => unsub();
-//   }, [])
-
-  // check for userToken saved
+  // check for accessToken saved on inital load
   useEffect(()=> {
-    const userToken = sessionStorage.getItem("accessToken")
-    if(userToken) {
-      axios.get("https://simple-crud-react-mysql.herokuapp.com/auth/authorize", {
+    const accessToken = sessionStorage.getItem("accessToken")
+    if(accessToken) {
+      axios.get(`${domain}/auth/authorize`, {
         headers: {
-          accessToken: userToken
+          accessToken
         },
       }).then( res => {
+        if(res.data.userInformation) dispatch({type: "IS_PROFILE_SETUP", payload: res.data.userInformation});
         dispatch({type: "AUTH_IS_READY", payload: res.data})
-
       })
     } else {
       dispatch({type: "AUTH_IS_READY", payload: null})

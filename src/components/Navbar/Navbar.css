@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #14a190;
+  padding: 1em;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1em;
+  letter-spacing: .02em;
+}
+
+.navbar .username {
+  margin-left: auto;
+  font-weight: 600;
+  color: white;
+  letter-spacing: .05em;
+  margin-right: 1em;
+  font-size: 1.1em;
+  line-height: 1em;
+}
+
+.navbar button {
+  all: unset;
+  margin-right: 1em;
+  background-color: white;
+  padding: .4em 1em;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Navbar.css.map */

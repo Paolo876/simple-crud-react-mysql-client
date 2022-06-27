@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
+import Navbar from "./components/Navbar/Navbar";
 import './App.scss';
 
 // pages
@@ -9,31 +11,19 @@ import Post from './pages/Post/Post';
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
+import useAuthActions from "./hooks/useAuthActions";
+import ProfileSetup from "./pages/ProfileSetup/ProfileSetup";
 
 function App() {
-  const { user, dispatch, authIsReady } = useAuthContext();
-
+  const { user, authIsReady, isProfileSetup } = useAuthContext();
+  const { logout } = useAuthActions();
   return (
     <div className="App">
-      <BrowserRouter>
       {authIsReady &&
         <>
-          <nav>
-            {user && <>
-              <Link to="/create-post">Create a Post</Link>
-              <Link to="/">Home</Link>
-              <Link to={`/profile/${user.id}`}>Profile</Link>
-              <p className="username">{user.username}</p>
-              <button onClick={() => dispatch({type: "LOGOUT"})}>Logout</button>
-
-            </>}
-            {!user && <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>}
-            
-          </nav>
+          <Navbar/>
           <Routes>
+            <Route element={ user && !isProfileSetup ? <ProfileSetup/> : <Navigate to='/login'/>} path="/profile-setup" />
             <Route element={ user ? <Home/> : <Navigate to='/login'/>} path="/" />
             <Route element={ user ? <CreatePost/> : <Navigate to='/login'/>} path="/create-post" />
             <Route element={ user ? <Post/> : <Navigate to='/login'/>} path="/post/:id" />
@@ -44,7 +34,6 @@ function App() {
           </Routes>
         </>
       }
-      </BrowserRouter>
     </div>
   );
 }

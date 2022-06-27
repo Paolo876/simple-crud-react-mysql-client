@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { domain } from '../../variables';
 import "./Post.scss";
 
 export default function Post() {
@@ -13,14 +14,14 @@ export default function Post() {
     const { user } = useAuthContext();
     const navigate = useNavigate();
     useEffect(()=> {
-        axios.get(`https://simple-crud-react-mysql.herokuapp.com/posts/byId/${id}`).then(res => setData(res.data))
-        axios.get(`https://simple-crud-react-mysql.herokuapp.com/comments/${id}`).then(res => setComments(res.data))
+        axios.get(`${domain}/posts/byId/${id}`).then(res => setData(res.data))
+        axios.get(`${domain}/comments/${id}`).then(res => setComments(res.data))
     }, [])
 
     // comment submit
     const handleSubmit = async (e) => {
       e.preventDefault();
-      axios.post(`https://simple-crud-react-mysql.herokuapp.com/comments`, {
+      axios.post(`${domain}/comments`, {
         comment: commentInput,
         PostId: id,
         UserId: user.id
@@ -38,7 +39,7 @@ export default function Post() {
       })
     }
     const deleteComment = (id) => {
-      axios.delete(`https://simple-crud-react-mysql.herokuapp.com/comments/${id}`, {
+      axios.delete(`${domain}/comments/${id}`, {
         headers: {
           accessToken: sessionStorage.getItem("accessToken")
         }
@@ -49,7 +50,7 @@ export default function Post() {
 
     const deletePost = () => {
       const PostId = data.id;
-      axios.delete(`https://simple-crud-react-mysql.herokuapp.com/posts/${PostId}`, {
+      axios.delete(`${domain}/posts/${PostId}`, {
         headers: {
           accessToken: sessionStorage.getItem("accessToken")
         }

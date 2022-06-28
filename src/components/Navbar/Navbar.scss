@@ -1,36 +1,81 @@
 @import "../../variables.scss";
 
 .navbar {
+  background-color: $primary-color;
+  
+  ul {
     display: flex;
     flex-direction: row;
-    background-color: $primary-color;
-    padding: 1em;
-    gap: 1em;
     align-items: center;
-    a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      font-size: 1.1em;
-      letter-spacing: .02em;
-    }
-    .username{
-      margin-left: auto;
+    gap: 1em;
+    margin: 0 auto;
+    max-width: 2100px;
+    li{
       font-weight: 600;
       color: white;
-      letter-spacing: .05em;
-      margin-right: 1em;
-      font-size: 1.1em;
-      line-height: 1em;
-    }
-    button {
-      all: unset;
-      margin-right: 1em;
-      background-color: white;
-      padding: .4em 1em;
-      font-weight: 600;
+      font-size: 1.2em;
       letter-spacing: .02em;
-      border-radius: 5px;
-      cursor: pointer
+      user-select: none;
+      a, button {
+        text-decoration: none;
+        all: unset;
+        padding: 1em;
+        // border-radius: 30%;
+        display: flex;
+        cursor: pointer;
+        transition: background 200ms ease;
+        position: relative;
+
+        &:not(.active):hover{
+          background-color: rgba(255, 255, 255, 0.25);
+        }
+        &:not(.active):hover > .info {
+          visibility: visible;
+        }
+        &.active {
+          background-color: $secondary-color;
+        }
+        svg {
+          font-size: 1.75em;
+        }
+        .info {
+          
+          position: absolute;
+          visibility: hidden;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 120%);
+          transition: visibility 10ms ease 500ms;
+          background-color: rgba(255, 255, 255, 0.5);
+          color: black;
+          font-weight: 300;
+          text-align: center;
+          padding: .2em;
+          border-radius: 5px;
+        }
+      }
+
+
+      &:nth-child(3){
+        margin-left: auto;
+      }
+      &.user {
+        a {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: .5em;
+          padding: .25em .5em;
+          margin: .25em;
+          border-radius: 25px;
+          border: 3px solid $secondary-color;
+        }
+        img {
+          height: 45px;
+          width: 45px;
+          border-radius: 50%;
+        }
+      }
     }
+  }
 }

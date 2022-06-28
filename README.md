@@ -68,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+NOTES:
+
+Netlify 404 error on refresh
+    -add _redirects file on /public (no file extension).
+        - add code: /* /index.html 200
+
+    -add line to package.json(top) : "homepage": "YOUR PUBLIC URL",
+    -add line to index.html(/public) : <head>...<base href="YOUR PUBLIC URL" />...</head>

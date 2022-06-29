@@ -31,8 +31,8 @@ export default function Navbar() {
                   src={user.userInformation.imageData.photoURL} alt="user avatar"
                   urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}  
                   transformation={[{
-                  height: 45,
-                  width: 45
+                  height: 35,
+                  width: 35
                 }]}
                 /> : 
                 <img src={defaultAvatar} alt="user avatar"/>
@@ -42,10 +42,10 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li><NavLink to="/settings"><SettingsIcon/><span className="info">Settings</span></NavLink></li>
-
-          <li><button onClick={logout}><LogoutIcon/><span className="info">Logout</span></button></li>
-
           </>}
+          {user && <li className='logout-item' style={{marginLeft: user.userInformation ? '': 'auto'}}><button onClick={logout}><LogoutIcon/><span className="info">Logout</span></button></li>}
+
+
           {!user && <>
             <li><NavLink to="/login">Login</NavLink></li>
             <li><NavLink to="/signup">Signup</NavLink></li>

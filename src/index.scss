@@ -58,7 +58,7 @@ button:disabled{
   opacity: .75;
 }
 
-input {
+input, textarea {
   all: unset;
   border: 1px solid $primary-color;
   border-radius: 5px;
@@ -71,6 +71,11 @@ input {
     border: 2px solid $primary-color;
     
   }
+}
+textarea {
+  display: inline-block;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;

@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+.image-preview{
+    max-width: 22em;
+    max-height: 15em;
+    margin: 0 auto;
+    border: 1px solid $secondary-color;
+    img{
+        height: auto;
+        width: auto;
+    }
+}

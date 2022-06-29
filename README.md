@@ -78,5 +78,6 @@ Netlify 404 error on refresh
     -add _redirects file on /public (no file extension).
         - add code: /* /index.html 200
 
-    -add line to package.json(top) : "homepage": "YOUR PUBLIC URL",
+    -add line to package.json(top) :   "homepage": "https://simple-crud-react-mysql.netlify.app",
+
     -add line to index.html(/public) : <head>...<base href="YOUR PUBLIC URL" />...</head>

@@ -22,7 +22,9 @@ export default function useAuthActions() {
   const login = (url, data) => {
     setIsLoading(true);
     setError(null);
-    axios.post(url, data).then((res) => {
+    axios.post(url, data, {
+      headers: {"Access-Control-Allow-Origin": "*"}
+    }).then((res) => {
         if(res.data.error) {
             setError(res.data.error)
         } else {

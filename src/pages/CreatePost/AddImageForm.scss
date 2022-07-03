@@ -1,12 +1,26 @@
 @import "../../variables.scss";
 
-.image-preview{
-    max-width: 22em;
-    max-height: 15em;
+.add-image-form{
+    max-width: 450px;
+    max-height: 400px;
     margin: 0 auto;
-    border: 1px solid $secondary-color;
+    border: 1px dotted $secondary-color;
+    margin-bottom: 2em;
+    position: relative;
     img{
         height: auto;
         width: auto;
+    }
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $secondary-color;
+        background-color: $gray-color;
+        display: flex;
+        opacity: .75;
+        &:hover{
+            opacity: 1;
+        }
     }
 }

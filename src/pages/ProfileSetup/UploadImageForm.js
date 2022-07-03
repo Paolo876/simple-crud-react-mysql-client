@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IKContext, IKUpload } from "imagekitio-react";
+import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 import defaultImage from "../../assets/default-profile.png";
 import "./UploadImageForm.scss";
 import axios from 'axios';
@@ -24,7 +24,6 @@ export default function UploadImageForm({imageData, setImageData, imageLoading, 
       setImageData(null)
       setImageLoading(false)
     })
-
   }
 
   return (
@@ -33,7 +32,12 @@ export default function UploadImageForm({imageData, setImageData, imageLoading, 
         <label className='image-input'>
           <span>Profile Picture: <small>(optional)</small></span>
           <div className="image-preview">
-              <img src={imageData ? imageData.photoURL : defaultImage} alt="preview" />
+              {imageData && <IKImage  src={imageData.photoURL}   
+                                      transformation={[{ height: 300, width: 400 }]}
+                                      loading="lazy"   
+                                      lqip={{ active: true, quality: 20 }}
+              />}
+              {!imageData && <img src={defaultImage} alt='preview'/>}
           </div>
           {!imageData && <IKUpload
             fileName="avatar.png"

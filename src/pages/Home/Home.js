@@ -3,19 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { domain } from '../../variables';
 import axios from 'axios';
+import PageContainer from '../../components/PageContainer/PageContainer';
 import "./Home.scss";
+import PostsList from './PostsList';
 
 export default function Home() {
   const [ postsList, setPostsList ] = useState(null);
   const navigate = useNavigate();
-  const { user, isProfileSetup } = useAuthContext();
+  const { isProfileSetup } = useAuthContext();
   
   useEffect(()=> {
     if(!isProfileSetup) navigate("/profile-setup")
     axios.get(`${domain}/posts`).then( res => {
       setPostsList(res.data)
     })
-  }, [])
+  }, []);
 
   const handleLikeClick = (e, PostId, index) => {
     e.stopPropagation();
@@ -44,35 +46,23 @@ export default function Home() {
             return {...item, Likes: updatedLikes}
           } else {
             return item;
-
           }
         }))
       }
     })
   }
-  const handleProfileClick = (e, id) => {
-    e.stopPropagation();
-    navigate(`/profile/${id}`)
-  }
+
   return (
-    <div className='home'>
-        <ul>
-            {postsList && postsList.map((item, index) => (
-            <li 
-              key={item.id} 
-              className="post" 
-              onClick={() => navigate(`/post/${item.id}`)}
-            >
-              <h4 className="title">{item.title}</h4>
-              <p className="body">{item.postText}</p>
-              <div className="footer">
-                  <button onClick={e => handleProfileClick(e, item.UserId)}>{item.User.username}</button>
-                  <p>{new Date(item.createdAt.toString()).toLocaleDateString()}</p>
-                  {<button onClick={ e => handleLikeClick(e, item.id, index)}>{!item.Likes.find(item => item.UserId === user.id) ? "Like" : "Unlike"}</button>}
-                  <p>{item.Likes.length}</p>
-              </div>
-            </li>))}
-        </ul>
-    </div>
+    <PageContainer>
+      <div className='home'>
+        {/* <div className="filter">
+          <select name="" id="">
+            <option value="most-popular">Most Popular</option>
+            <option value="most-recent">Most Recent</option>
+          </select>
+        </div> */}
+        {postsList && <PostsList postsList={postsList} handleLikeClick={handleLikeClick} />}
+      </div>
+    </PageContainer>
   )
 }

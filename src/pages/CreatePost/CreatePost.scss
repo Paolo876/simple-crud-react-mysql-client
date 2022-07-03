@@ -41,11 +41,11 @@
                 opacity: .8;
             }
             input, textarea {
-                width: 25em;
+                width: 38em;
                 letter-spacing: .02em;
             }
             textarea {
-                height: 6em;
+                height: 12em;
             }
         }
         .privacy {
@@ -56,7 +56,6 @@
             align-items: center;
             margin: 0;
             gap: 1em;
-            margin-top: .5em;
             margin-bottom: 2em;
             li{
                 button{
@@ -91,7 +90,9 @@
 
                 &:last-child{
                     margin-left: auto;
-                    div{
+                    user-select: none;
+                    label, div{
+                        margin: 0;
                         display: flex;
                         flex-direction: row;
                         align-items: center;
@@ -108,6 +109,12 @@
                         &:hover{
                             color: $secondary-color;
                         }
+                        input {
+                            display: none;
+                        }
+                    }
+                    div{
+                        pointer-events: none;
                     }
                 }
             }

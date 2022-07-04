@@ -11,7 +11,7 @@ import AddImageForm from './AddImageForm';
 
 //media
 import PublicIcon from '@mui/icons-material/Public';
-import PeopleIcon from '@mui/icons-material/People';
+import LockIcon from '@mui/icons-material/Lock';
 import PhotoIcon from '@mui/icons-material/Photo';
 import "./CreatePost.scss";
 
@@ -19,7 +19,7 @@ import "./CreatePost.scss";
 export default function CreatePost() {
     const navigate = useNavigate();
     const { isProfileSetup } = useAuthContext();
-    const [ privacy, setPrivacy ] = useState("public")
+    const [ isPublic, setIsPublic ] = useState(true)
     const [ isLoading, setIsLoading ] = useState(false);
     const [ error, setError ] = useState(null);
     const [ imageData, setImageData ] = useState(null);
@@ -61,7 +61,7 @@ export default function CreatePost() {
     const handleSubmit = (data) => {
         setIsLoading(true);
         setError(null);
-        axios.post(`${domain}/posts`, {...data, postData: JSON.stringify(imageData)},{
+        axios.post(`${domain}/posts`, {...data, isPublic, postData: JSON.stringify(imageData)},{
             headers: {
                 accessToken: sessionStorage.getItem("accessToken")
               }
@@ -101,14 +101,16 @@ export default function CreatePost() {
                             </Field>
                         </label>
                         <ul className="privacy">
+                            {isPublic && <p className='privacy-info'>Public Posts are accessed by everyone, allowing them to read the content, like, and post a comment.</p>}
+                            {!isPublic && <p className='privacy-info'>Private Posts are only accessed by the author's friends, only the title is publicly shown on the post.</p>}
                             <li>
-                                <button className={privacy === "public" ? 'active' : ''} type='button' onClick={() => setPrivacy("public")}>
+                                <button className={isPublic ? 'active' : ''} type='button' onClick={() => setIsPublic(true)}>
                                     <PublicIcon/> Public
                                 </button>
                             </li>
                             <li>
-                                <button className={privacy === "private" ? 'active' : ''} type='button' onClick={() => setPrivacy("private")}>
-                                    <PeopleIcon/> Friends only
+                                <button className={!isPublic ? 'active' : ''} type='button' onClick={() => setIsPublic(false)}>
+                                    <LockIcon/> Private
                                 </button>
                             </li>
                             <li>

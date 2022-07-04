@@ -20,20 +20,23 @@ export default function PostsList({postsList, handleLikeClick}) {
         {postsList.map((item, index) => (
             <li 
             key={item.id} 
-            className={`${JSON.parse(item.postData) ? 'with-image' : ''}`}
+            className={`${JSON.parse(item.postData) && item.isPublic ? 'with-image' : ''}`}
             onClick={() => navigate(`/post/${item.id}`)}
             >
               <div className="body">
                 <h4>{item.title}</h4>
-                <p>{item.postText.length > 200 ? `${item.postText.substr(0,200)}...`: item.postText}</p>
-                {JSON.parse(item.postData) && <IKImage 
-                  src={JSON.parse(item.postData).photoURL} 
-                  alt="post-cover"
-                  urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}  
-                  transformation={[{
-                    height: 600
-                  }]}
-                />}
+                {item.isPublic && <>
+                  <p>{item.postText.length > 200 ? `${item.postText.substr(0,200)}...`: item.postText}</p>
+                  {JSON.parse(item.postData) && <IKImage 
+                    src={JSON.parse(item.postData).photoURL} 
+                    alt="post-cover"
+                    urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}  
+                    transformation={[{
+                      height: 600
+                    }]}
+                  />}
+                </>}
+                {!item.isPublic && <p className='private-post'>This post is private.</p>}
               </div>
               <div className="footer">
                   <div className="likes">

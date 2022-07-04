@@ -1,0 +1,75 @@
+@import "../../variables.scss";
+
+.comments-preview{
+    width: 35%;
+    // background-color: rgba(0,0,0,0.05);
+    margin: 3em auto;
+
+    form {
+        background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: .75em 1.25em;
+        gap: 1em;
+        border-radius: 10px;
+        .user-avatar{
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+            img{
+                height: auto;
+                width: auto;
+
+            }
+        }
+        input {
+            flex: 1;
+            padding: .5em 1em;
+            width: 100%;
+            border: 1px solid $secondary-color;
+            border-radius: 15px;
+            font-size: .9em;
+            box-sizing: border-box;
+            letter-spacing: .025em;
+            &:focus{
+                border: 2px solid $secondary-color;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
+        button {
+            all: unset;
+            height: 2em;
+            background-color: $secondary-color;
+            letter-spacing: .02em;
+            outline: none;
+            padding: .25em .8em;
+            font-size: .95em;
+            font-weight: 300;
+            color: white;
+            cursor: pointer;
+            opacity: .9;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+        margin: 2em;
+        li {
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 1em;
+            position: relative;
+            button {
+                position: absolute;
+                top: .5em;
+                right: .5em;
+                cursor: pointer;
+            }
+        }
+
+    }
+}

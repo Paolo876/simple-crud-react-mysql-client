@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+
+.post-preview {
+    width: 65%;
+
+    .container {
+        border: 2px solid $primary-color;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 50em;
+        margin: 3em auto 3em 3em;
+        box-shadow: $shadow;
+        h1{
+            background-color: $primary-color;
+            color: white;
+            margin: 0;
+            padding: .75em 1.2em;
+            font-weight: 400;
+            letter-spacing: .05em;
+        }
+        .text {
+            margin: 5em .5em;
+        }
+        .footer {
+            display: flex;
+            flex-direction: row;
+            background-color: $primary-color;
+            color: white;
+            padding: 1em;
+            gap: 2em;
+        }
+    }
+}

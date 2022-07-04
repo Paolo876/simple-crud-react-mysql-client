@@ -61,7 +61,10 @@
           letter-spacing: .05em;
           line-height: 1.5em;
           color: white;
-          // mix-blend-mode: difference;
+          &.private-post {
+            font-weight: 600;
+            font-style: italic;
+          }
         }
       }
       .footer {

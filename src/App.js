@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,12 +11,12 @@ import Post from './pages/Post/Post';
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
-import useAuthActions from "./hooks/useAuthActions";
 import ProfileSetup from "./pages/ProfileSetup/ProfileSetup";
+import Messages from "./pages/Messages/Messages";
 
 function App() {
   const { user, authIsReady, isProfileSetup } = useAuthContext();
-  const { logout } = useAuthActions();
+  const [ socket, setSocket ] = useState(null)
   return (
     <div className="App">
       {authIsReady &&
@@ -28,6 +28,7 @@ function App() {
             <Route element={ user ? <CreatePost/> : <Navigate to='/login'/>} path="/create-post" />
             <Route element={ user ? <Post/> : <Navigate to='/login'/>} path="/post/:id" />
             <Route element={ user ? <Profile/> : <Navigate to='/login'/>} path="/profile/:id" />
+            <Route element={ user ? <Messages/> : <Navigate to='/login'/>} path="/messages/*" />
 
             <Route element={ user ? <Navigate to="/"/> : <Login/>} path="/login" />
             <Route element={ user ? <Navigate to="/"/> : <Signup/>} path="/signup" />

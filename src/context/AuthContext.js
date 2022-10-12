@@ -1,15 +1,17 @@
 import { createContext, useReducer, useEffect } from 'react'
-import axios from 'axios'
-import { domain } from '../variables'
-export const AuthContext = createContext()
+import axios from 'axios';
+import { domain, usersSocket } from '../variables';
 
+export const AuthContext = createContext()
 export const authReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
-      sessionStorage.setItem("accessToken", action.payload.accessToken)
+      sessionStorage.setItem("accessToken", action.payload.accessToken);
+      usersSocket.emit("onConnect", action.payload.id);
       return { ...state, user: action.payload}
     case 'LOGOUT':
-      sessionStorage.removeItem("accessToken")
+      sessionStorage.removeItem("accessToken");
+      usersSocket.emit("onLogout");
       return { ...state, user: null, isProfileSetup: false }
     case 'IS_PROFILE_SETUP':
       if(action.payload){
@@ -43,13 +45,15 @@ export const AuthContextProvider = ({ children }) => {
         },
       }).then( res => {
         if(res.data.userInformation) dispatch({type: "IS_PROFILE_SETUP", payload: res.data.userInformation});
-        dispatch({type: "AUTH_IS_READY", payload: res.data})
+        dispatch({type: "AUTH_IS_READY", payload: res.data});
+        usersSocket.emit("onConnect", res.data.id);
       })
     } else {
       dispatch({type: "AUTH_IS_READY", payload: null})
 
     }
   }, [])
+
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       { children }

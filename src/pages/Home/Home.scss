@@ -1,14 +1,12 @@
 @import "../../variables.scss";
 
 .home {
-  padding: 2em 0;
-  max-width: 50em;
+  // padding: 2em 0;
+  width: 100%;
   margin: 0 auto;
   position: relative;
-  .filter {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    margin: .5em 0 1em 0;
-  }
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: flex-start;
 }

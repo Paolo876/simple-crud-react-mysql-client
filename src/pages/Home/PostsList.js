@@ -1,55 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { IKImage } from "imagekitio-react";
+import axios from 'axios';
+import { domain } from '../../variables';
+import PostItem from '../../components/PostItem/PostItem';
+
+//media
+import AddIcon from '@mui/icons-material/Add';
 import "./PostsList.scss";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export default function PostsList({postsList, handleLikeClick}) {
-  const { user } = useAuthContext();
+
+export default function PostsList() {
   const navigate = useNavigate();
+  const [ postsList, setPostsList ] = useState(null);
 
-  const handleProfileClick = (e, id) => {
+  useEffect(() => {
+    axios.get(`${domain}/posts`).then( res => {
+      setPostsList(res.data)
+    })
+  }, []);
+
+  const handleLikeClick = (e, PostId ) => {
     e.stopPropagation();
-    navigate(`/profile/${id}`)
+    axios.post(`${domain}/likes`, {
+      PostId
+    },
+    {
+      headers: {
+        accessToken: sessionStorage.getItem("accessToken")
+      }
+    }).then((res) => {
+      if(res.data.isLiked){
+        const data = (({ id, PostId, UserId }) => ({ id, PostId, UserId }))(res.data.response);
+        setPostsList(prevState => prevState.map(item => {
+          if(item.id === data.PostId){
+            return {...item, Likes: [...item.Likes, data]}
+          } else {
+            return item;
+          }
+        }))
+      } else {
+        const id = res.data.response.id;
+        setPostsList(prevState => prevState.map(item => {
+          if(item.id === PostId){
+            const updatedLikes = item.Likes.filter(item => item.id !== id)
+            return {...item, Likes: updatedLikes}
+          } else {
+            return item;
+          }
+        }))
+      }
+    })
   }
-  console.log(postsList)
+
   return (
     <ul className='posts-list'>
-        {postsList.map((item, index) => (
-            <li 
-            key={item.id} 
-            className={`${JSON.parse(item.postData) && item.isPublic ? 'with-image' : ''}`}
-            onClick={() => navigate(`/post/${item.id}`)}
-            >
-              <div className="body">
-                <h4>{item.title}</h4>
-                {item.isPublic && <>
-                  <p>{item.postText.length > 200 ? `${item.postText.substr(0,200)}...`: item.postText}</p>
-                  {JSON.parse(item.postData) && <IKImage 
-                    src={JSON.parse(item.postData).photoURL} 
-                    alt="post-cover"
-                    urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}  
-                    transformation={[{
-                      height: 600
-                    }]}
-                  />}
-                </>}
-                {!item.isPublic && <p className='private-post'>This post is private.</p>}
-              </div>
-              <div className="footer">
-                  <div className="likes">
-                      {<button onClick={ e => handleLikeClick(e, item.id, index)}>
-                          {!item.Likes.find(item => item.UserId === user.id) ? <FavoriteBorderIcon/> : <FavoriteIcon/>}
-                      </button>}
-                      {item.Likes.length !== 0 && <p>{item.Likes.length}</p>}
-                  </div>
-                  <span>Posted by: <button onClick={e => handleProfileClick(e, item.UserId)}>{item.User.username}</button></span>
-                  <p>{new Date(item.createdAt.toString()).toLocaleDateString()}</p>
-              </div>
-            </li>))
-        }
+      <li 
+        onClick={() => navigate(`/create-post`)}
+        className="create-post-item"
+        ><span>Create New Post</span>
+        <AddIcon/>
+      </li>
+      {postsList && postsList.map( item => <PostItem item={item} handleLikeClick={handleLikeClick} key={item.id}/>)}
     </ul>
   )
 }

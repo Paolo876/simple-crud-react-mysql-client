@@ -1,0 +1,96 @@
+@import "../../variables.scss";
+
+.profile-page-user-information {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    .about-user{
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .profile-picture {
+            overflow: hidden;
+            img {
+                border-radius: 50%;
+                padding: 5px;
+                height: 100px;
+                width: 100px;
+                &.online{
+                    border: 2px solid green;
+                }
+                &.idle{
+                    border: 2px solid rgb(222, 144, 0);
+                    opacity: .85;
+    
+                }
+                &.invisible{
+                    border: 2px solid grey;
+                    opacity: .65;
+                }
+            }
+        }
+        .username-container{
+            display: flex;
+            flex-direction: column;
+            gap: .3em;
+            p{
+                &:first-child{
+                    font-family: $secondary-font;
+                    letter-spacing: .05em;
+                    font-size: 1.25em;
+                    font-weight: 600;
+                }
+                &:last-child{
+                    font-size: 1.15em;
+                    font-weight: 400;
+                    letter-spacing: .02em;
+                    opacity: .75;
+
+                }
+            }
+        }
+        .profile-actions {
+            user-select: none;
+            .edit-btn {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+                background-color: $secondary-color;
+                color: white;
+                font-weight: 400;
+                font-size: .9em;
+                padding: .5em 1em;
+                letter-spacing: .02em;
+                border-radius: 5px;
+                margin-left: 5em;
+                svg{
+                    font-size: 1.2em;
+                }
+        
+            }
+        }
+    }
+
+    .user-content {
+        display: flex;
+        flex-direction: row;
+        gap: 3em;
+        margin-top: 1em;
+        p{
+            font-size: 1.1em;
+            letter-spacing: .05em;
+            span {
+                font-size: 1.15em;
+                font-weight: 300;
+                margin-right: .25em;
+            }
+        }
+    }
+}

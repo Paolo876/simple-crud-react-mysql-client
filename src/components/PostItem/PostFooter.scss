@@ -1,0 +1,68 @@
+@import "../../variables.scss";
+
+.post-footer {
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    background-color: $primary-color;
+    padding: 1.2em;
+    color: white;
+    gap: 1em;
+    font-size: .8em;
+    letter-spacing: .01em;
+    .likes{
+        margin-left: .5em;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .5em;
+        
+        button{
+          svg{
+            font-size: 2em;
+          }
+          &:hover{
+            color: $secondary-color;
+            filter: brightness(160%);
+          }
+          &:active{
+            transform: scale(.9);
+          }
+          &.disabled-like-btn {
+            opacity: .5;
+            pointer-events: none;
+          }
+        }
+    }
+    span{
+      font-weight: 300;
+      font-style: italic;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: .75em;
+      button{
+        font-weight: 400;
+        font-style: normal;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .25em;
+        img{
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+        }
+        &:hover{
+          color: $gray-color;
+          filter: brightness(110%);
+        }
+      }
+    }
+    p {
+      font-weight: 300;
+    }
+  }

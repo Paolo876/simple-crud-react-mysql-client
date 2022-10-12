@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+
+.chat-list {
+    background-color: rgba(0,0,0,0.05);
+    min-width: 22em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 2px solid $secondary-color;
+    user-select: none;
+    .item {
+        padding: .25em .75em;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: .5em;
+        p{
+            font-weight: 500;
+            letter-spacing: .02em;
+            text-align: center;
+            width: 100%;
+        }
+        button {
+            background-color: $primary-color;
+            padding: .2em;
+            display: flex;
+            color: $gray-color;
+            border-radius: 5px;
+            &:hover{
+                filter: brightness(110%);
+            }
+        }
+    }
+    ul{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: .25em;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .notice {
+            overflow: hidden;
+            max-width: fit-content;
+            margin: 1em .5em;
+            font-size: .85em;
+            letter-spacing: .02em;
+            font-style: italic;
+            opacity: .8;
+        }
+    }
+
+}

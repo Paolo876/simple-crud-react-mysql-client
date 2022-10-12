@@ -7,24 +7,24 @@ import { useNavigate } from 'react-router-dom';
 import "./PostPreview.scss";
 
 export default function PostPreview({data}) {
-    const { user } = useAuthContext();
-    const navigate = useNavigate();
-    const [ error, setError ] = useState(null);
+  const { user } = useAuthContext();
+  const navigate = useNavigate();
+  const [ error, setError ] = useState(null);
 
-    const deletePost = () => {
-        const PostId = data.id;
-        axios.delete(`${domain}/posts/${PostId}`, {
-          headers: {
-            accessToken: sessionStorage.getItem("accessToken")
-          }
-        }).then((res) => {
-          if(!res.data.error){
-            navigate("/")
-          } else{
-            setError(res.data.error)
-          }
-        })
+  const deletePost = () => {
+    const PostId = data.id;
+    axios.delete(`${domain}/posts/${PostId}`, {
+      headers: {
+        accessToken: sessionStorage.getItem("accessToken")
       }
+    }).then((res) => {
+      if(!res.data.error){
+        navigate("/")
+      } else{
+        setError(res.data.error)
+      }
+    })
+  }
   return (
     <div className='post-preview'>
         <div className="container">

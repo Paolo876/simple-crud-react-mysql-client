@@ -1,0 +1,40 @@
+@import "../../variables.scss";
+
+.friend-requests {
+    margin-top: 1em;
+    padding: .25em .5em;
+
+    width: 100%;
+    ul{
+        // margin-bottom: 1em;
+        padding-top: .5em;
+        .list-item {
+            position: relative;
+            
+            .actions{
+                position: absolute;
+                top: 50%;
+                right: .5em;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: row;
+                gap: .5em;
+                button {
+                    border-radius: 10px;
+                    background-color: $secondary-color;
+                    display: flex;
+                    padding: .15em 1em;
+                    color: white;
+                    opacity: .75;
+                    &:last-child{
+                        background-color: rgb(216, 71, 19);
+                    }
+                    &:hover {
+                        filter: brightness(120%);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ import { domain } from '../../variables';
 import PageContainer from "../../components/PageContainer/PageContainer";
 import "./Post.scss";
 import PostPreview from './PostPreview';
-import CommentsPreview from './CommentsPreview';
+import CommentsPreview from './CommentsPreview/CommentsPreview';
 
 export default function Post() {
     const { id } = useParams();

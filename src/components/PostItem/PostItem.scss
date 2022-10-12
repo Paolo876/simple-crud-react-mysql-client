@@ -1,0 +1,63 @@
+@import "../../variables.scss";
+.post-item {
+    box-shadow: $shadow;
+    width: 40em;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    background-color: white;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+
+    &:hover > .post-body > p {
+      visibility: visible;
+    }
+    &:hover > .post-body > h4 {
+      opacity: .3;
+    }
+    &:active{
+      transform: scale(.99);
+    }
+    .privacy {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      background-color: $secondary-color;
+      color: white;
+      border-radius: 5px;
+      p{
+        font-size: .55em;
+        padding: .3em .5em;
+        letter-spacing: .05em;
+        font-weight: 400;
+      }
+    }
+    &.with-image {
+      &:hover > .post-body > h4 {
+        opacity: 0;
+      }
+      &:hover > .post-body > img {
+        opacity: .25;
+      }
+      .post-body {
+        h4{
+          position: absolute;
+          color: white;
+          top: 0;
+          left: 0;
+          font-size: 1.4em;
+          width: 100%;
+          padding: .4em .5em;
+          background-color: $primary-color;
+          z-index: 2;
+        }
+        img{
+          height: auto;
+          width: auto;
+          object-fit: cover;
+        }
+      }
+    }
+  }

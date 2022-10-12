@@ -54,8 +54,8 @@ export default function CreatePost() {
         postText:"",
     }
     const validationSchema = Yup.object().shape({
-        title: Yup.string().required(),
-        postText: Yup.string().required(),
+        title: Yup.string().required().matches(/^(\S+$)/g, 'This field must not be left blank.'),
+        postText: Yup.string().required().matches(/^(\S+$)/g, 'This field must not be left blank.'),
     })
 
     const handleSubmit = (data) => {
@@ -101,8 +101,8 @@ export default function CreatePost() {
                             </Field>
                         </label>
                         <ul className="privacy">
-                            {isPublic && <p className='privacy-info'>Public Posts are accessed by everyone, allowing them to read the content, like, and post a comment.</p>}
-                            {!isPublic && <p className='privacy-info'>Private Posts are only accessed by the author's friends, only the title is publicly shown on the post.</p>}
+                            {isPublic && <p className='privacy-info'>Public Posts allows anyone to view, comment, and like the post.</p>}
+                            {!isPublic && <p className='privacy-info'>Private Posts only allows the author's friends to view, comment, and like the post.</p>}
                             <li>
                                 <button className={isPublic ? 'active' : ''} type='button' onClick={() => setIsPublic(true)}>
                                     <PublicIcon/> Public

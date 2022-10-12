@@ -1,0 +1,29 @@
+.input-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    text-align: left;
+    span {
+        font-family: var(--secondary-font);
+        letter-spacing: .02em;
+    }
+    input, textarea {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        border-radius: 5px;
+        height: 1.6em;
+        margin-top: .3em;
+        padding: .25em .5em;
+        opacity: .9;
+        &:focus{
+            outline: 2px solid var(--primary-color);
+            opacity: 1;
+        }
+        &:hover:not(:focus){
+            outline: 2px solid rgb(65, 65, 65);
+        }
+    }
+    textarea {
+        resize: none;
+    }
+}

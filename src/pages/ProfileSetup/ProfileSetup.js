@@ -14,7 +14,6 @@ export default function ProfileSetup() {
     const { error, isLoading, updateProfile } = useAuthActions();
     const [ imageData, setImageData ] = useState(null);
     const [ imageLoading, setImageLoading ] = useState(false);
-    const navigate = useNavigate();
     const initialValues = {
         firstName: "",
         lastName: "",
@@ -28,8 +27,7 @@ export default function ProfileSetup() {
     })
 
     const handleSubmit = data => {
-        updateProfile(`${domain}/auth/updateProfile`, {userInformation: JSON.stringify({...data, imageData})})
-        
+        updateProfile(`${domain}/user-updates/updateProfile`, {userInformation: JSON.stringify({...data, imageData})})
     }
   return (
     <div className='profile-setup-page'>

@@ -1,0 +1,13 @@
+.chat-box-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    ul {
+        display: flex;
+        flex-direction: column-reverse;
+        height: inherit;
+        overflow-y: auto;
+    }
+}

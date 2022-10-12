@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.scss';
 import App from './App';
 import { AuthContextProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
           <App />
       </AuthContextProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 
@@ -25,4 +25,6 @@ root.render(
  * imagekitio-react
  * formik   --form handling
  * yup      --form validating
+ * date-fns
+ * emoji-picker-react
  */

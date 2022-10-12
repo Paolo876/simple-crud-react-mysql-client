@@ -1,0 +1,38 @@
+@import "../../../variables.scss";
+
+.new-chat {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .find-recipient-form {
+        width: 100%;
+        box-shadow: $shadow;
+        letter-spacing: .02em;
+        
+        label {
+            width: inherit;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: .5em 1em;
+            background-color: rgba(255, 255, 255, 0.5);
+            span {
+                font-weight: 500;
+            }
+            input{
+                margin-left: .5em;
+                width: inherit;
+                border: none;
+            }
+        }
+    }
+    .results {
+        width: 100%;
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+}

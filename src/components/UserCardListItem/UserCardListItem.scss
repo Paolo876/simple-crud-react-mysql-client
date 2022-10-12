@@ -1,0 +1,91 @@
+@import "../../variables.scss";
+
+.user-card-list-item{
+    button{
+        all: unset;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1em;
+        width: 100%;
+        padding: .25em;
+        border-radius: 10px;
+        img{
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            &.online{
+                border: 2px solid green;
+            }
+            &.idle{
+                border: 2px solid rgb(222, 144, 0);
+                opacity: .85;
+
+            }
+            &.invisible{
+                border: 2px solid grey;
+                opacity: .65;
+            }
+        }
+        p{
+            font-size: .9em;
+            letter-spacing: .02em;
+            small {
+                margin-left: .25em;
+                font-weight: 500;
+            }
+        }
+        &:hover{
+            background-color: rgba(0,0,0,0.1);
+        }
+        .chat-item {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            .username {
+                font-weight: 500;
+            }
+            .message {
+                display: flex;
+                flex-direction: row;   
+                justify-content: space-between;
+                width: 100%;
+                margin-top: .10em;
+                position: relative;
+                overflow: hidden;
+                p{
+                    font-size: .8em;
+                    opacity: .75;
+                    font-weight: 300;
+
+                    &:first-child{
+                        max-width: 18ch;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+            }
+            &.unread {
+                .username{
+                    font-weight: 600;
+                    font-size: .95em;
+                    letter-spacing: .025em;
+                }
+                .message{
+                    p:first-child{
+                        opacity: 1;
+                        font-weight: 500;
+                        font-size: .85em;
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+        &.unread-container{
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}

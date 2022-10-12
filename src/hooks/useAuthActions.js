@@ -35,8 +35,26 @@ export default function useAuthActions() {
     })
   }
 
-  const logout = () => {
-    dispatch({type: "LOGOUT"})
+  // **modifies isLoggedIn property on server
+  const logout = (url, data) => {
+    setIsLoading(true);
+    setError(null);
+
+    axios.put(url, data, {
+      headers: {
+        accessToken: sessionStorage.getItem("accessToken")
+      }
+    })
+    .then( res => {
+      
+      if(res.data.error){
+        setError(res.data.error)
+      } else {
+        dispatch({type: "LOGOUT"})
+      }
+      setIsLoading(false);
+    })
+    .catch( err => console.log(err.message))
   }
 
   const signup = (url, data) => {

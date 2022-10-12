@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import useAuthActions from '../../hooks/useAuthActions';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { IKImage } from 'imagekitio-react';
-
+import { domain } from '../../variables';
 //media
 import SettingsIcon from '@mui/icons-material/Settings';
 import PostAddIcon from '@mui/icons-material/PostAdd';
@@ -22,7 +22,7 @@ export default function Navbar() {
         {user && user.userInformation && <>
           <li><NavLink to="/"><HomeIcon/><span className="info">Home</span></NavLink></li>
           <li><NavLink to="/create-post"><PostAddIcon/><span className="info">Create Post</span></NavLink></li>
-          <li><NavLink to="/settings"><ChatIcon/><span className="info">Messages</span></NavLink></li>
+          <li><NavLink to={`/messages`}><ChatIcon/><span className="info">Messages</span></NavLink></li>
 
           <li className="user">
             <NavLink to={`/profile/${user.id}`}>
@@ -43,7 +43,7 @@ export default function Navbar() {
           </li>
           <li><NavLink to="/settings"><SettingsIcon/><span className="info">Settings</span></NavLink></li>
           </>}
-          {user && <li className='logout-item' style={{marginLeft: user.userInformation ? '': 'auto'}}><button onClick={logout}><LogoutIcon/><span className="info">Logout</span></button></li>}
+          {user && <li className='logout-item' style={{marginLeft: user.userInformation ? '': 'auto'}}><button onClick={() => logout(`${domain}/auth/logout`, {isLogggedIn: false})}><LogoutIcon/><span className="info">Logout</span></button></li>}
 
 
           {!user && <>

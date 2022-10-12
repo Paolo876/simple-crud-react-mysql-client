@@ -1,0 +1,136 @@
+@import "../../../variables.scss";
+
+.comments-preview{
+    width: 35%;
+    // padding: 1em auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    form {
+        background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: .75em 1.25em;
+        gap: 1em;
+        border-radius: 10px;
+        margin-top: 3em;
+        min-height: 5em;
+        .user-avatar{
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+            img{
+                height: 40px;
+                width: 40px;
+
+            }
+        }
+        input {
+            flex: 1;
+            padding: .5em 1em;
+            width: 100%;
+            border: 1px solid $secondary-color;
+            border-radius: 15px;
+            font-size: .9em;
+            box-sizing: border-box;
+            letter-spacing: .025em;
+            &:focus{
+                border: 2px solid $secondary-color;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
+        button {
+            all: unset;
+            height: 2em;
+            background-color: $secondary-color;
+            letter-spacing: .02em;
+            outline: none;
+            padding: .25em .8em;
+            font-size: .95em;
+            font-weight: 300;
+            color: white;
+            cursor: pointer;
+            opacity: .9;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    .commentsList {
+        list-style: none;
+        padding: 2em .5em;
+        margin: 1em 0;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        .comment {
+            border: 2px solid rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            margin-bottom: .5em;
+            min-height: 4em;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            align-items: flex-start;
+            .user-avatar {
+                all: unset;
+                cursor: pointer;
+                margin: .25em;
+                margin-right: .5em;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+            .body{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                flex: 1;
+                margin: .25em 2em .75em .5em;
+                
+                height: fit-content;
+                .comment-text{
+                    font-size: .95em;
+                }
+                .user-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    justify-content: right;
+                    width: 100%;
+                    user-select: none;
+                    p {
+                        &.user{
+                            font-size: .75em;
+                            margin-bottom: .1em;
+                        }
+                        &.time{
+                            font-size: .6em;
+                        }
+                    }
+                }
+            }
+            button {
+                position: absolute;
+                top: .2em;
+                right: .2em;
+                cursor: pointer;
+                color: $secondary-color;
+                svg{
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+    }
+}

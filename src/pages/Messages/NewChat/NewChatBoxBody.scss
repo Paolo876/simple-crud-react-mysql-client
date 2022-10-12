@@ -1,0 +1,44 @@
+.new-chat-box-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        .receipient-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+            background-color: rgba(90, 90, 90, 0.25);
+            opacity: .9;
+            img {
+                width: 80px;
+                height: auto;
+                cursor: pointer;
+                user-select: none;
+
+            }
+            div {
+                letter-spacing: .02em;
+                margin-top: .5em;
+                font-size: 1.2em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .username {
+                    font-weight: 500;
+                }
+                .name {
+                    font-size: .9em;
+                    font-weight: 300;
+                }
+            }
+        }
+        ul {
+            display: flex;
+            flex-direction: column-reverse;
+            height: inherit;
+            overflow-y: auto;
+        }
+    
+}

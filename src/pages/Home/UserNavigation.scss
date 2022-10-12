@@ -1,0 +1,162 @@
+@import "../../variables.scss";
+
+.user-navigation {
+    height: 100%;
+    min-width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1em;
+    border-right: 2px solid $secondary-color;
+    user-select: none;
+    position: fixed;
+    .backdrop{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 15;
+        // background-color: rgba(255, 0, 0, 0.147);
+    }
+    .user-info{
+        all: unset;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        box-sizing: border-box;
+
+        .user-avatar{
+            height: 40px;
+            width: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            &.online{
+                border: 2px solid green;
+            }
+            &.idle{
+                border: 2px solid rgb(222, 144, 0);
+                opacity: .85;
+
+            }
+            &.invisible{
+                border: 2px solid grey;
+                opacity: .65;
+            }
+            img{
+                height: auto;
+                width: auto;
+            }
+        }
+        .user-data{
+            display: flex;
+            flex-direction: column;
+            margin-left: 1em;
+            letter-spacing: .02em;
+            p{
+                font-size: 1.1em;
+                &.username{
+                    font-weight: 500;
+                }
+                &.name{
+                    opacity: .9;
+                    font-weight: 300;
+                    font-size: .95em;
+                }
+            }
+        }
+    }
+    .status-select{
+        position: relative;
+        letter-spacing: .02em;
+        padding: .25em .5em;
+        margin-top: 1.5em;
+        width: 100%;
+        &:hover{
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .status{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: .95em;
+            p {
+                margin-left: .5em;
+                font-weight: 500;
+            }
+            svg{
+                margin-left: auto;
+                &.active{
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        ul{
+            box-shadow: $shadow;
+            top: 1.9em;
+            left: 1.5em;
+            position: absolute;
+            background-color: rgb(241, 241, 241);
+            width: 90%;
+            overflow: hidden;
+            z-index: 16;
+            li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding: .75em .75em;
+                cursor: pointer;
+                color: $secondary-color;
+                border: 1px solid transparent;
+                &:not(:last-child){
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.25);
+                    border: 1px solid $secondary-color;
+                }
+                svg{
+                    font-size: 1em;
+                    margin-right: .5em;
+                    // opacity: .75;
+                    &.online{
+                        color: green;
+                    }
+                    &.idle{
+                        color: rgb(222, 144, 0);
+                    }
+                    &.invisible{
+                        color: grey;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .friends{
+        padding: .25em .5em;
+        width: 100%;
+
+        ul{
+            margin-top: .5em;
+            display: flex;
+            flex-direction: column;
+            gap: .25em;
+            width: 100%;
+        }
+    }
+    .item {
+        padding: .25em .5em;
+        margin-top: 1.5em;
+        width: 100%;
+        &:hover{
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+    }
+}

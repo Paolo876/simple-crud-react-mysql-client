@@ -16,7 +16,6 @@ export default function Messages() {
   const [ isLoading, setIsLoading ] = useState(false);
   const params = useParams();
   const { user } = useAuthContext();
-
   //get list of chatrooms of user on mount
   useEffect(() => {
     //this request includes the last message on the chatroom
@@ -35,7 +34,6 @@ export default function Messages() {
         setIsLoading(false)
       })
   }, [])
-
   //update on new message
   useEffect(() => {
     if(newMessage) {
@@ -59,13 +57,12 @@ export default function Messages() {
       setChatList(prevState => [newRoom, ...prevState])
     }
   }, [newRoom])
-  console.log(chatList)
   return (
     <PageContainer>
-        <div className="messages-page">
+        {chatList && <div className="messages-page">
             <ChatList isLoading={isLoading} chatList={chatList}/>
-            <ChatBox setChatList={setChatList}/>
-        </div>
+            <ChatBox setChatList={setChatList} chatList={chatList}/>
+        </div>}
     </PageContainer>
   )
 }

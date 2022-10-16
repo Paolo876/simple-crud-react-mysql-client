@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Picker from 'emoji-picker-react';
 import { IKImage } from 'imagekitio-react';
 import axios from 'axios';
@@ -12,7 +12,7 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import "./ChatBoxInput.scss";
 
 export default function ChatBoxInput({ chatRoomId=null, setMessages }) {
-  // const { user } = useAuthContext();
+  const inputRef = useRef(null);
   const [ input, setInput ] = useState('');
   const [ imageData, setImageData ] = useState(null);  
   const [ showPicker, setShowPicker ] = useState(false);
@@ -26,14 +26,16 @@ export default function ChatBoxInput({ chatRoomId=null, setMessages }) {
     if(imageData) handleRemoveImageClick();
   }, [chatRoomId])
   
-  const handleRemoveImageClick = () => {
-    // setIsImageLoading(true)
+  const handleRemoveImageClick = (e) => {
+    e.preventDefault();
     if(imageData){
-      axios.delete(`${domain}/imagekit/delete/${imageData.fileId}`, {
+      const temp = imageData;
+      setImageData(null)
+      setIsImageLoading(true)
+      axios.delete(`${domain}/imagekit/delete/${temp.fileId}`, {
         headers: { accessToken: sessionStorage.getItem("accessToken") }
       }).then(() => {
-        setImageData(null)
-        // setIsImageLoading(false)
+        setIsImageLoading(false)
       })  
     }
   }
@@ -88,7 +90,7 @@ export default function ChatBoxInput({ chatRoomId=null, setMessages }) {
           </div>
         }
         <button onClick={() => setShowPicker(true)}><SentimentSatisfiedAltIcon/></button> */}
-        <AddImageButton imageData={imageData} setImageData={setImageData}setIsImageLoading={setIsImageLoading} />
+        <AddImageButton imageData={imageData} setImageData={setImageData} setIsImageLoading={setIsImageLoading} />
       </div>
       <div className="input-container">
         {isImageLoading && <div className='loading-img'><LoadingSpinner/></div>}
@@ -109,6 +111,7 @@ export default function ChatBoxInput({ chatRoomId=null, setMessages }) {
           onChange={ e => setInput(e.target.value) }
           value={input}
           disabled={isLoading}
+          autoFocus={true}
           />
       </div>
       <div className="submit-btn">

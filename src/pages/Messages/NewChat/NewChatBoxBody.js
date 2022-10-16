@@ -5,19 +5,30 @@ import axios from 'axios';
 import { domain, chatSocket } from '../../../variables';
 import { IKImage } from 'imagekitio-react';
 import defaultAvatar from "../../../assets/default-profile.png";
+import { useAuthContext } from '../../../hooks/useAuthContext';
 import "./NewChatBoxBody.scss";
 
 export default function NewChatBoxBody() {
+  const { user } = useAuthContext();
   const id = useParams().id;
   const [ receipient, setReceipient ] = useState(null);
   const parsedInformation = receipient && JSON.parse(receipient.userInformation);
   const navigate = useNavigate();
   useEffect(() => {
     //get user info from id;
-    axios.get(`${domain}/auth/profile/${id}`)
+    if(parseInt(id) !== parseInt(user.id)){
+      axios.get(`${domain}/auth/profile/${id}`)
       .then(res => {
-        setReceipient(res.data)
+        if(res.data) {
+          setReceipient(res.data)
+        } else {
+          navigate("/messages")
+        }
       })
+    } else {
+      navigate("/messages")
+    }
+
   }, [id])
   const handleMessageSubmit = (data) => {
     const { message, media } = data;

@@ -9,7 +9,6 @@ import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 export default function ChatList({isLoading, chatList}) {
   const { user } = useAuthContext();
   const navigate = useNavigate();
-
   return (
     <div className='chat-list'>
         <div className="header item">

@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Input.scss";
-export default function Input({ onChange, onKeyDown, value, label, type, height, maxLength, placeholder, required=false, disabled=false}) {
+export default function Input({ onChange, onKeyDown, value, label, type, height, maxLength, placeholder, required=false, disabled=false, autoFocus=false}) {
 
   return (
     <label className='input-item'>
@@ -15,6 +15,7 @@ export default function Input({ onChange, onKeyDown, value, label, type, height,
             maxLength={maxLength} 
             required={required}
             disabled={disabled}
+            autoFocus={autoFocus}
           />}
         {type === "textarea" && 
           <textarea 

@@ -6,12 +6,12 @@ import NewChatBoxBody from './NewChat/NewChatBoxBody';
 
 import "./ChatBox.scss"
 
-export default function ChatBox({ setChatList }) {
+export default function ChatBox({ setChatList, chatList }) {
   return (
     <div className='chatbox'>
       <Routes>
         <Route element={<NewChat/>} path="/new"/>
-        <Route element={<ChatBoxBody setChatList={setChatList}/>} path="/:id"/>
+        <Route element={<ChatBoxBody setChatList={setChatList} chatList={chatList}/>} path="/:id"/>
         <Route element={<NewChatBoxBody/>} path="/create/:id"/>
       </Routes>
     </div>

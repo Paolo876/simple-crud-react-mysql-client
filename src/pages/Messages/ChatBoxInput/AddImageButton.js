@@ -18,7 +18,7 @@ export default function AddImageButton({ imageData, setImageData, setIsImageLoad
     const urlEndpoint = process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT;
     
   return (
-    <button className='file-upload-btn'>
+    <button className='file-upload-btn' type="button">
         <IKContext 
             publicKey={publicKey} 
             urlEndpoint={urlEndpoint} 

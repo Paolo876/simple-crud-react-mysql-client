@@ -25,7 +25,11 @@ export default function NewChat() {
       setIsLoading(true)
       timeout = setTimeout(() => {
         setInputResponse(input)
-        axios.get(`${domain}/auth/search/${input}`).then(res => {
+        axios.get(`${domain}/auth/search/${input}`,{
+          headers: {
+              accessToken: sessionStorage.getItem("accessToken")
+            }
+          }).then(res => {
           setData(res.data)
           setIsLoading(false)
         })

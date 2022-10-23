@@ -1,5 +1,10 @@
 import React from 'react'
 import { useAuthContext } from '../../../hooks/useAuthContext'
+import { IKImage } from 'imagekitio-react';
+import defaultAvatar from "../../../assets/default-profile.png";
+
+import "./PrivateChatRoom.scss";
+
 export default function PrivateChatRoom({members}) {
   // const receipientUser = members.find
   const { id } = useAuthContext().user;
@@ -10,7 +15,18 @@ export default function PrivateChatRoom({members}) {
     <div className='private-chat-room'>
       <div className="user-info">
           <div className="image-container">
-            {/* IKIMAGE here avatar */}
+          {imageData ? 
+            <IKImage 
+              // className={status}
+              src={imageData.photoURL} alt="user avatar"
+              urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}  
+              transformation={[{
+              height: 40,
+              width: 40
+            }]}
+            /> : 
+            <img src={defaultAvatar} alt="user avatar"/>
+          }
           </div>
           <p>{username}</p>
           <p>{firstName} {lastName}</p>

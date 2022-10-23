@@ -17,15 +17,10 @@ export default function UserNavigation() {
   const { user } = useAuthContext();
   const [ status, setStatus ] = useState('invisible');
   const [ showSelector, setShowSelector ] = useState(false);
-  const [ friendsList, setFriendsList ] = useState(null);
   const [ newFriendRequest, setNewFriendRequest] = useState(null);
 
   useEffect(() => {
-    //get current list of friends
-    axios.get(`${domain}/friends/user-friends/${user.id}`).then( res => {
-      setFriendsList(res.data)
-    })
-    //get current status of user 
+    //get current status of user  (move to userAuth)
     axios.get(`${domain}/auth/status/`, {
       headers: {
         accessToken: sessionStorage.getItem("accessToken")
@@ -39,20 +34,20 @@ export default function UserNavigation() {
   }, [])
 
   //run on new friend request
-  useEffect(() => {
-    if(newFriendRequest){
-      let friend = newFriendRequest;
-      if(newFriendRequest.action === "add"){
-        friend.relationship = {status: 'pending'}
-        setFriendsList(prevState => [...prevState, friend])
-      }
-      if(newFriendRequest.action === "cancel"){
-        setFriendsList(prevState => prevState.filter(item => item.id !== friend.id))
-      }
-    }
-  }, [newFriendRequest]);
+  // useEffect(() => {
+  //   if(newFriendRequest){
+  //     let friend = newFriendRequest;
+  //     if(newFriendRequest.action === "add"){
+  //       friend.relationship = {status: 'pending'}
+  //       setFriendsList(prevState => [...prevState, friend])
+  //     }
+  //     if(newFriendRequest.action === "cancel"){
+  //       setFriendsList(prevState => prevState.filter(item => item.id !== friend.id))
+  //     }
+  //   }
+  // }, [newFriendRequest]);
 
-  //handle user status change
+  //handle user status change (move to userAuth)
   const changeUserStatus = (_status) => {
     setShowSelector(false)
     axios.put(`${domain}/user-updates/user-status`, {userStatus: _status}, {
@@ -91,8 +86,8 @@ export default function UserNavigation() {
                 <li onClick={() => changeUserStatus("invisible")}><VisibilityOffIcon className='invisible'/> invisible</li>
             </ul>}
         </div>
-        {friendsList && <FriendRequestsList friendRequests={friendsList.filter(item => item.relationship.status ==="pending")} setFriendsList={setFriendsList}/>}
-        {friendsList && <FriendsList friendsList={friendsList.filter(item => item.relationship.status ==="friends")}/>}
+        <FriendRequestsList/>
+        <FriendsList/>
     </div>
   )
 }

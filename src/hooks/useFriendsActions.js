@@ -1,6 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useFriendsContext } from "./useFriendsContext";
+import { domain } from "../variables";
+import axios from "axios";
 
 /* PURPOSE:
  *  to do FriendsContext actions with the use of axios.
@@ -19,11 +20,29 @@ export default function useFriendsActions() {
   const [ error, setError ] = useState(null);
   const [ isLoading, setIsLoading ] = useState(false);
 
-  //friendRequestAction (confirm/cancel friend requests)
-
-  //
+  //friendRequestActions (confirm/cancel friend requests)
+  const friendRequestResponse = (action, id) => {
+    if(!isLoading){
+      console.log("RUN")
+      setIsLoading(true)
+      axios.post(`${domain}/friends/request-action`, 
+        { action, id },
+        {
+          headers: {
+            accessToken: sessionStorage.getItem("accessToken")
+          }
+        }).then(() => {
+          dispatch({type: "HANDLE_FRIEND_REQUEST_RESPONSE", payload: { action, id }})
+          setIsLoading(false)
+        }).catch( err => {
+          setError(err.message)
+          setIsLoading(false)
+        })  
+    }
+  }
   return {
     error,
     isLoading,
+    friendRequestResponse
   }
 }

@@ -34,10 +34,22 @@ export const friendsReducer = (state, action) => {
         return item
       })}
     case "HANDLE_FRIEND_REQUEST":
-      console.log(action.payload)
       if(action.payload.action === "add") return { ...state, friendRequests: [ ...state.friendRequests, action.payload ]}
       if(action.payload.action === "cancel") return { ...state, friendRequests: state.friendRequests.filter(item => item.id !== action.payload.id)}
-
+    case "HANDLE_FRIEND_LOGOUT":
+      return { ...state, friendsList: state.friendsList.map(item => {
+        if(action.payload === item.id) item.isLoggedIn = false;
+        return item;
+      })}
+    case "HANDLE_FRIEND_REQUEST_RESPONSE":
+      const friend = state.friendRequests.find(item => item.id === action.payload.id);
+      if(action.payload.action === "confirm") {
+        friend.relationship = { status: "friends"}
+        return { ...state, friendsList: [...state.friendsList, friend], friendRequests: [...state.friendRequests.filter(item => item !== friend)]}
+      }
+      if(action.payload.action === "delete") {
+        return { ...state, friendRequests: [...state.friendRequests.filter(item => item !== friend)]}
+      }
     case "TOGGLE_HEARTBEAT":
       return { ...state, isHeartbeatEnabled: action.payload}
     default:

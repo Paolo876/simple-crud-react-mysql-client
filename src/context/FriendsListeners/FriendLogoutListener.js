@@ -3,7 +3,7 @@ import { FriendsContext } from "../FriendsContext";
 import { usersSocket } from "../../variables";
 
 // FriendLogoutListener Component --listens to friends manually logging out of the app.
-export default function FriendLogoutListener() {
+export default function FriendLogoutListener({ setHeartbeat }) {
     const { isHeartbeatEnabled, dispatch } = useContext(FriendsContext);
     const [ friendLogout, setFriendLogout ] = useState(null)
     useEffect(() => {
@@ -16,6 +16,7 @@ export default function FriendLogoutListener() {
   
     useEffect(() => {
       if(friendLogout) {
+        setHeartbeat(prevState => prevState.filter(item => item !== friendLogout))
         dispatch({type: "HANDLE_FRIEND_LOGOUT", payload: friendLogout})
         setFriendLogout(null)
       }

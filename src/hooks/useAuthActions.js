@@ -35,26 +35,27 @@ export default function useAuthActions() {
     })
   }
 
-  // **modifies isLoggedIn property on server
+  // updated logout function --handled by socketio. user db is updated on serverside 
   const logout = (url, data) => {
-    setIsLoading(true);
-    setError(null);
+    dispatch({type: "LOGOUT"})
 
-    axios.put(url, data, {
-      headers: {
-        accessToken: sessionStorage.getItem("accessToken")
-      }
-    })
-    .then( res => {
+    // setIsLoading(true);
+    // setError(null);
+    // axios.put(url, data, {
+    //   headers: {
+    //     accessToken: sessionStorage.getItem("accessToken")
+    //   }
+    // })
+    // .then( res => {
       
-      if(res.data.error){
-        setError(res.data.error)
-      } else {
-        dispatch({type: "LOGOUT"})
-      }
-      setIsLoading(false);
-    })
-    .catch( err => console.log(err.message))
+    //   if(res.data.error){
+    //     setError(res.data.error)
+    //   } else {
+    //     dispatch({type: "LOGOUT"})
+    //   }
+    //   setIsLoading(false);
+    // })
+    // .catch( err => console.log(err.message))
   }
 
   const signup = (url, data) => {

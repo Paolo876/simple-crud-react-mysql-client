@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.friends {
+  margin-top: 1em;
+}
+
+.friends .requests {
+  margin-bottom: 2em;
+}
+
+.friends .requests .list-item {
+  position: relative;
+}
+
+.friends .requests .list-item .actions {
+  position: absolute;
+  top: 50%;
+  right: .5em;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: .5em;
+}
+
+.friends .requests .list-item .actions button {
+  border-radius: 10px;
+  background-color: #2489c0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .15em 1em;
+  color: white;
+  opacity: .75;
+}
+
+.friends .requests .list-item .actions button:last-child {
+  background-color: #d84713;
+}
+
+.friends .requests .list-item .actions button:hover {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+  opacity: 1;
+}
+/*# sourceMappingURL=FriendsList.css.map */

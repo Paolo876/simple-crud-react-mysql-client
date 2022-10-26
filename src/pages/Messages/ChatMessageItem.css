@@ -1,0 +1,69 @@
+.chat-message-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: .5em;
+  padding: .5em .25em;
+  margin: .05em 0;
+}
+
+.chat-message-item .image-container {
+  border-radius: 50%;
+  overflow: hidden;
+  margin: .25em;
+  height: 35px;
+  width: 35px;
+}
+
+.chat-message-item .image-container img {
+  height: 35px;
+  width: 35px;
+}
+
+.chat-message-item .message-container {
+  letter-spacing: .01em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .25em;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: .25em .5em;
+  border-radius: 10px;
+}
+
+.chat-message-item .message-container .user {
+  font-weight: 500;
+}
+
+.chat-message-item .message-container .user small {
+  margin-left: .25em;
+  font-weight: 300;
+  font-size: .8em;
+}
+
+.chat-message-item .message-container .message {
+  font-size: .9em;
+}
+
+.chat-message-item .message-container .media img {
+  max-width: 500px;
+  max-height: 500px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.chat-image-modal img {
+  height: auto;
+  width: auto;
+}
+/*# sourceMappingURL=ChatMessageItem.css.map */

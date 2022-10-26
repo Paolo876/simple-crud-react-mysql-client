@@ -1,0 +1,7 @@
+.chatbox {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+/*# sourceMappingURL=ChatBox.css.map */

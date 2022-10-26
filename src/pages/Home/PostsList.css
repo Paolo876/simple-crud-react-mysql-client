@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.posts-list {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
+  padding-top: 1em;
+}
+
+.posts-list li {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 40em;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: white;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.posts-list li.create-post-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5em 0;
+  gap: .15em;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: #2489c0;
+  border: 2px solid #2489c0;
+}
+
+.posts-list li.create-post-item span {
+  font-size: 1.25em;
+}
+
+.posts-list li.create-post-item svg {
+  font-size: 1.8em;
+}
+
+.posts-list li.create-post-item:hover {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+  border: 2px solid #14a190;
+}
+
+.posts-list li:hover > .body > p {
+  visibility: visible;
+}
+
+.posts-list li:hover > .body > h4 {
+  opacity: .3;
+}
+
+.posts-list li:active {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+
+.posts-list li .privacy {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background-color: #2489c0;
+  color: white;
+  border-radius: 5px;
+}
+
+.posts-list li .privacy p {
+  font-size: .55em;
+  padding: .3em .5em;
+  letter-spacing: .05em;
+  font-weight: 400;
+}
+
+.posts-list li .body {
+  position: relative;
+  min-height: 12em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: -1;
+  -webkit-transition: 250ms all ease;
+  transition: 250ms all ease;
+}
+
+.posts-list li .body h4 {
+  font-size: 1.75em;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: .25em 2em;
+}
+
+.posts-list li .body p {
+  visibility: hidden;
+  position: absolute;
+  top: 0em;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 90ch;
+  padding: 1.5em;
+  font-size: 1.05em;
+  font-weight: 400;
+  letter-spacing: .05em;
+  line-height: 1.5em;
+  color: white;
+}
+
+.posts-list li .body p.private-post {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.posts-list li .footer {
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  background-color: #14a190;
+  padding: 1.2em;
+  color: white;
+  gap: 1em;
+  font-size: .8em;
+  letter-spacing: .01em;
+}
+
+.posts-list li .footer .likes {
+  margin-left: .5em;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+}
+
+.posts-list li .footer .likes button svg {
+  font-size: 2em;
+}
+
+.posts-list li .footer .likes button:hover {
+  color: #2489c0;
+  -webkit-filter: brightness(160%);
+          filter: brightness(160%);
+}
+
+.posts-list li .footer .likes button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.posts-list li .footer .likes button.disabled-like-btn {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.posts-list li .footer span {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.posts-list li .footer span button {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.posts-list li .footer span button:hover {
+  color: #d6d6d6;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+.posts-list li .footer p {
+  font-weight: 300;
+}
+
+.posts-list li.with-image:hover > .body > h4 {
+  opacity: 0;
+}
+
+.posts-list li.with-image:hover > .body > img {
+  opacity: .25;
+}
+
+.posts-list li.with-image .body h4 {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  font-size: 1.4em;
+  width: 100%;
+  padding: .4em .5em;
+  background-color: #14a190;
+  z-index: 2;
+}
+
+.posts-list li.with-image .body img {
+  height: auto;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=PostsList.css.map */

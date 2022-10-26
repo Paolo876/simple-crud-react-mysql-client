@@ -1,14 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
 .create-post {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  border-radius: 25px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2em auto;
+  padding: 3em 5em;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.create-post h3 {
+  margin-bottom: 2em;
+  letter-spacing: .2em;
+  font-size: 2em;
 }
 
 .create-post form {
-  margin-top: 3em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,13 +26,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  border: 3px solid #0072eb;
-  border-radius: 5px;
-  padding: 2em;
-  text-align: left;
+  max-width: 800px;
+  margin: 2em auto;
 }
 
 .create-post form label {
@@ -33,41 +38,194 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: .5em 0;
+  text-align: left;
+  margin-bottom: 2em;
   position: relative;
 }
 
+.create-post form label span {
+  font-weight: 500;
+  margin-bottom: .2em;
+  letter-spacing: .05em;
+}
+
 .create-post form label .error {
-  color: red;
-  font-style: italic;
   position: absolute;
-  top: -1em;
+  color: #2489c0;
+  top: 0em;
+  font-style: italic;
   right: .5em;
+  opacity: .8;
+}
+
+.create-post form label input, .create-post form label textarea {
+  width: 38em;
+  letter-spacing: .02em;
+}
+
+.create-post form label textarea {
+  height: 12em;
+}
+
+.create-post form .privacy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  gap: 1em;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.create-post form .privacy li button {
+  margin: 0;
+  background-color: #d6d6d6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .25em .75em;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #2489c0;
+  opacity: .75;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 150ms opacity ease, 150ms border ease;
+  transition: 150ms opacity ease, 150ms border ease;
   font-size: .9em;
 }
 
-.create-post form label span {
-  font-size: 1.1em;
-  margin-bottom: .2em;
+.create-post form .privacy li button svg {
+  font-size: 1em;
+  margin-right: .25em;
 }
 
-.create-post form label input {
-  height: 1.5em;
-  width: 25em;
-  padding: .2em;
-  font-size: 1.1em;
+.create-post form .privacy li button.active {
+  background-color: #2489c0;
+  border: 2px solid #14a190;
+  color: white;
+  opacity: 1;
 }
 
-.create-post form button {
+.create-post form .privacy li button:hover {
+  opacity: 1;
+  border: 2px solid #14a190;
+}
+
+.create-post form .privacy li:last-child {
+  margin-left: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.create-post form .privacy li:last-child label, .create-post form .privacy li:last-child div {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  color: #14a190;
+  cursor: pointer;
+}
+
+.create-post form .privacy li:last-child label p, .create-post form .privacy li:last-child div p {
+  font-size: .85em;
+}
+
+.create-post form .privacy li:last-child label svg, .create-post form .privacy li:last-child div svg {
+  font-size: 2.5em;
+  margin-right: 0;
+}
+
+.create-post form .privacy li:last-child label:hover, .create-post form .privacy li:last-child div:hover {
+  color: #2489c0;
+}
+
+.create-post form .privacy li:last-child label input, .create-post form .privacy li:last-child div input {
+  display: none;
+}
+
+.create-post form .privacy li:last-child div {
+  pointer-events: none;
+}
+
+.create-post form .privacy .privacy-info {
+  position: absolute;
+  top: 3.4em;
+  left: .5em;
+  width: 100%;
+  font-size: .85em;
+  font-weight: 300;
+  color: #2489c0;
+  font-style: italic;
+}
+
+.create-post form .submit-btn, .create-post form .cancel-btn {
   outline: none;
   border: none;
   margin-top: 3em;
   text-align: center;
-  background-color: #0072eb;
+  background-color: #2489c0;
   color: white;
   padding: .75em 0;
   border-radius: 5px;
   opacity: .9;
   font-size: 1em;
+  -webkit-transition: 150ms opacity ease, 150ms border ease;
+  transition: 150ms opacity ease, 150ms border ease;
+  border: 2px solid transparent;
+}
+
+.create-post form .submit-btn:disabled, .create-post form .cancel-btn:disabled {
+  opacity: .5;
+}
+
+.create-post form .submit-btn:disabled:hover, .create-post form .cancel-btn:disabled:hover {
+  opacity: .5;
+  border: 2px solid transparent;
+}
+
+.create-post form .submit-btn.cancel-btn, .create-post form .cancel-btn.cancel-btn {
+  margin-top: 2em;
+  background-color: #d6d6d6;
+  color: #2489c0;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+.create-post form .submit-btn:hover, .create-post form .cancel-btn:hover {
+  opacity: 1;
+  border: 2px solid #14a190;
 }
 /*# sourceMappingURL=CreatePost.css.map */

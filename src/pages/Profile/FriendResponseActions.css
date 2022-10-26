@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.friend-response-actions {
+  margin-left: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-radius: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+}
+
+.friend-response-actions.pending button {
+  opacity: .75;
+}
+
+.friend-response-actions .backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+}
+
+.friend-response-actions .friend-response-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.friend-response-actions .friend-response-container button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+  background-color: #2489c0;
+  color: white;
+  font-weight: 400;
+  font-size: .9em;
+  padding: .5em 1em;
+  letter-spacing: .02em;
+}
+
+.friend-response-actions .friend-response-container button svg {
+  font-size: 1.2em;
+}
+
+.friend-response-actions .friend-response-container button.response-btn {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.friend-response-actions .friend-response-container button.selector-btn {
+  border-left: 1px solid rgba(255, 255, 255, 0.374);
+  padding-left: .75em;
+  padding-right: .75em;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.friend-response-actions .friend-response-container button.selector-btn svg {
+  font-size: 1.5em;
+}
+
+.friend-response-actions .friend-response-container button.message-btn {
+  margin-left: .5em;
+  border-radius: 5px;
+  padding: .5em 1.5em;
+}
+
+.friend-response-actions .friend-response-container button.message-btn svg {
+  font-size: 1.5em;
+}
+
+.friend-response-actions .friend-response-container button:hover {
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+}
+
+.friend-response-actions .friend-response-container .options {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  top: 102%;
+  right: 0;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 85%;
+  overflow: hidden;
+  z-index: 16;
+}
+
+.friend-response-actions .friend-response-container .options li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: .75em .75em;
+  cursor: pointer;
+  color: #2489c0;
+  border: 1px solid transparent;
+}
+
+.friend-response-actions .friend-response-container .options li:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.friend-response-actions .friend-response-container .options li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid #2489c0;
+}
+
+.friend-response-actions .message-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 1em;
+  background-color: #2489c0;
+  color: white;
+  font-weight: 400;
+  font-size: .9em;
+  padding: .5em 1.5em;
+  letter-spacing: .02em;
+  border-radius: 5px;
+}
+
+.friend-response-actions .message-btn svg {
+  font-size: 1.5em;
+}
+/*# sourceMappingURL=FriendResponseActions.css.map */

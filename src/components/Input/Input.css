@@ -1,0 +1,40 @@
+.input-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+  text-align: left;
+}
+
+.input-item span {
+  font-family: var(--secondary-font);
+  letter-spacing: .02em;
+}
+
+.input-item input, .input-item textarea {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  border-radius: 5px;
+  height: 1.6em;
+  margin-top: .3em;
+  padding: .25em .5em;
+  opacity: .9;
+}
+
+.input-item input:focus, .input-item textarea:focus {
+  outline: 2px solid var(--primary-color);
+  opacity: 1;
+}
+
+.input-item input:hover:not(:focus), .input-item textarea:hover:not(:focus) {
+  outline: 2px solid #414141;
+}
+
+.input-item textarea {
+  resize: none;
+}
+/*# sourceMappingURL=Input.css.map */

@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.post-item {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 40em;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: white;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.post-item:hover > .post-body > p {
+  visibility: visible;
+}
+
+.post-item:hover > .post-body > h4 {
+  opacity: .3;
+}
+
+.post-item:active {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+
+.post-item .privacy {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background-color: #2489c0;
+  color: white;
+  border-radius: 5px;
+}
+
+.post-item .privacy p {
+  font-size: .55em;
+  padding: .3em .5em;
+  letter-spacing: .05em;
+  font-weight: 400;
+}
+
+.post-item.with-image:hover > .post-body > h4 {
+  opacity: 0;
+}
+
+.post-item.with-image:hover > .post-body > img {
+  opacity: .25;
+}
+
+.post-item.with-image .post-body h4 {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  font-size: 1.4em;
+  width: 100%;
+  padding: .4em .5em;
+  background-color: #14a190;
+  z-index: 2;
+}
+
+.post-item.with-image .post-body img {
+  height: auto;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=PostItem.css.map */

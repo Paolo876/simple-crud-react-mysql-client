@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.post-preview {
+  width: 65%;
+  height: 100%;
+}
+
+.post-preview .container {
+  border: 2px solid #14a190;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 50em;
+  margin: 3em auto 3em 3em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.post-preview .container h1 {
+  background-color: #14a190;
+  color: white;
+  margin: 0;
+  padding: .75em 1.2em;
+  font-weight: 400;
+  letter-spacing: .05em;
+}
+
+.post-preview .container .text {
+  margin: 5em .5em;
+}
+
+.post-preview .container .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #14a190;
+  color: white;
+  padding: 1em;
+  gap: 2em;
+}
+/*# sourceMappingURL=PostPreview.css.map */

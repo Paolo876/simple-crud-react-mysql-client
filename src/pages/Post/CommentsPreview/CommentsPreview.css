@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.comments-preview {
+  width: 35%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: hidden;
+}
+
+.comments-preview form {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: .75em 1.25em;
+  gap: 1em;
+  border-radius: 10px;
+  margin-top: 3em;
+  min-height: 5em;
+}
+
+.comments-preview form .user-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.comments-preview form .user-avatar img {
+  height: 40px;
+  width: 40px;
+}
+
+.comments-preview form input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: .5em 1em;
+  width: 100%;
+  border: 1px solid #2489c0;
+  border-radius: 15px;
+  font-size: .9em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  letter-spacing: .025em;
+}
+
+.comments-preview form input:focus {
+  border: 2px solid #2489c0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.comments-preview form button {
+  all: unset;
+  height: 2em;
+  background-color: #2489c0;
+  letter-spacing: .02em;
+  outline: none;
+  padding: .25em .8em;
+  font-size: .95em;
+  font-weight: 300;
+  color: white;
+  cursor: pointer;
+  opacity: .9;
+}
+
+.comments-preview form button:hover {
+  opacity: 1;
+}
+
+.comments-preview .commentsList {
+  list-style: none;
+  padding: 2em .5em;
+  margin: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: auto;
+  display: flex;
+  -ms-flex-direction: column-reverse;
+      flex-direction: column-reverse;
+}
+
+.comments-preview .commentsList .comment {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  margin-bottom: .5em;
+  min-height: 4em;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: hidden;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.comments-preview .commentsList .comment .user-avatar {
+  all: unset;
+  cursor: pointer;
+  margin: .25em;
+  margin-right: .5em;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.comments-preview .commentsList .comment .user-avatar img {
+  height: 40px;
+  width: 40px;
+}
+
+.comments-preview .commentsList .comment .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: .25em 2em .75em .5em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.comments-preview .commentsList .comment .body .comment-text {
+  font-size: .95em;
+}
+
+.comments-preview .commentsList .comment .body .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.comments-preview .commentsList .comment .body .user-info p.user {
+  font-size: .75em;
+  margin-bottom: .1em;
+}
+
+.comments-preview .commentsList .comment .body .user-info p.time {
+  font-size: .6em;
+}
+
+.comments-preview .commentsList .comment button {
+  position: absolute;
+  top: .2em;
+  right: .2em;
+  cursor: pointer;
+  color: #2489c0;
+}
+
+.comments-preview .commentsList .comment button svg {
+  font-size: 1.2em;
+}
+/*# sourceMappingURL=CommentsPreview.css.map */

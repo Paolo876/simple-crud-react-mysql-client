@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.friend-requests {
+  margin-top: 1em;
+  padding: .25em .5em;
+  width: 100%;
+}
+
+.friend-requests ul {
+  padding-top: .5em;
+}
+
+.friend-requests ul .list-item {
+  position: relative;
+}
+
+.friend-requests ul .list-item .actions {
+  position: absolute;
+  top: 50%;
+  right: .5em;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: .5em;
+}
+
+.friend-requests ul .list-item .actions button {
+  border-radius: 10px;
+  background-color: #2489c0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .15em 1em;
+  color: white;
+  opacity: .75;
+}
+
+.friend-requests ul .list-item .actions button:last-child {
+  background-color: #d84713;
+}
+
+.friend-requests ul .list-item .actions button:hover {
+  -webkit-filter: brightness(120%);
+          filter: brightness(120%);
+  opacity: 1;
+}
+/*# sourceMappingURL=FriendRequestsList.css.map */

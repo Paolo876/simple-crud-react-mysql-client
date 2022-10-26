@@ -7,7 +7,6 @@ import arrayEquals from "../../utils/arrayEquals";
 export default function HeartbeatListener({ heartbeat, setHeartbeat }) {
     const { isHeartbeatEnabled, dispatch } = useContext(FriendsContext);
     const prevHeartbeat = usePrevious(heartbeat);
-    console.log(prevHeartbeat, heartbeat)
     useEffect(() => {
       if(isHeartbeatEnabled){
         const interval = setInterval(() => usersSocket.emit("heartbeat"), 45000) //emit heartbeat every 30secs

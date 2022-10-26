@@ -31,7 +31,7 @@ export default function ChatList({isLoading, chatList}) {
                       username={member.username} 
                       key={member.id} 
                       onClick={() => navigate(`/messages/${item.chatRoomId}`)}
-                      // chat={(item.chat && item.chat.message) ? item.chat : null}
+                      source={"chat"}
                       chat={item.chat ? item.chat : null}
                       isLastMessageRead={isLastMessageRead}
                   />)

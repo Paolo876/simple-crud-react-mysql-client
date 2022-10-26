@@ -25,6 +25,7 @@ export default function FriendRequestsList() {
                   userInformation={item.userInformation} 
                   username={item.username}
                   onClick={() => navigate(`/profile/${item.id}`)}
+                  source={"user-navigation"}
                 />
                 <div className="actions">
                   <button onClick={() => friendRequestResponse("confirm", item.id)}><CheckIcon/></button>

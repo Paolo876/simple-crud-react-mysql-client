@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.user-navigation {
+  height: 100%;
+  min-width: 20em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 1em;
+  border-right: 2px solid #2489c0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: fixed;
+}
+
+.user-navigation .backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+}
+
+.user-navigation .user-info {
+  all: unset;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.user-navigation .user-info .user-avatar {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-navigation .user-info .user-avatar.online {
+  border: 2px solid green;
+}
+
+.user-navigation .user-info .user-avatar.idle {
+  border: 2px solid #de9000;
+  opacity: .85;
+}
+
+.user-navigation .user-info .user-avatar.invisible {
+  border: 2px solid grey;
+  opacity: .65;
+}
+
+.user-navigation .user-info .user-avatar img {
+  height: auto;
+  width: auto;
+}
+
+.user-navigation .user-info .user-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 1em;
+  letter-spacing: .02em;
+}
+
+.user-navigation .user-info .user-data p {
+  font-size: 1.1em;
+}
+
+.user-navigation .user-info .user-data p.username {
+  font-weight: 500;
+}
+
+.user-navigation .user-info .user-data p.name {
+  opacity: .9;
+  font-weight: 300;
+  font-size: .95em;
+}
+
+.user-navigation .status-select {
+  position: relative;
+  letter-spacing: .02em;
+  padding: .25em .5em;
+  margin-top: 1.5em;
+  width: 100%;
+}
+
+.user-navigation .status-select:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.user-navigation .status-select .status {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .95em;
+}
+
+.user-navigation .status-select .status p {
+  margin-left: .5em;
+  font-weight: 500;
+}
+
+.user-navigation .status-select .status svg {
+  margin-left: auto;
+}
+
+.user-navigation .status-select .status svg.active {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.user-navigation .status-select ul {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  top: 1.9em;
+  left: 1.5em;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 90%;
+  overflow: hidden;
+  z-index: 16;
+}
+
+.user-navigation .status-select ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: .75em .75em;
+  cursor: pointer;
+  color: #2489c0;
+  border: 1px solid transparent;
+}
+
+.user-navigation .status-select ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.user-navigation .status-select ul li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid #2489c0;
+}
+
+.user-navigation .status-select ul li svg {
+  font-size: 1em;
+  margin-right: .5em;
+}
+
+.user-navigation .status-select ul li svg.online {
+  color: green;
+}
+
+.user-navigation .status-select ul li svg.idle {
+  color: #de9000;
+}
+
+.user-navigation .status-select ul li svg.invisible {
+  color: grey;
+}
+
+.user-navigation .friends {
+  padding: .25em .5em;
+  width: 100%;
+}
+
+.user-navigation .friends ul {
+  margin-top: .5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .25em;
+  width: 100%;
+}
+
+.user-navigation .item {
+  padding: .25em .5em;
+  margin-top: 1.5em;
+  width: 100%;
+}
+
+.user-navigation .item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+/*# sourceMappingURL=UserNavigation.css.map */

@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
 .navbar {
+  background-color: #14a190;
+  padding: 0 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7,40 +17,106 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: #14a190;
-  padding: 1em;
-  gap: 1em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: .25em;
+  margin: 0 auto;
+  max-width: 1700px;
+  height: 100%;
 }
 
-.navbar a {
+.navbar ul li {
+  font-weight: 600;
+  color: white;
+  font-size: 1.1em;
+  letter-spacing: .02em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.navbar ul li a, .navbar ul li button {
   text-decoration: none;
-  color: white;
-  font-weight: 600;
-  font-size: 1.1em;
-  letter-spacing: .02em;
-}
-
-.navbar .username {
-  margin-left: auto;
-  font-weight: 600;
-  color: white;
-  letter-spacing: .05em;
-  margin-right: 1em;
-  font-size: 1.1em;
-  line-height: 1em;
-}
-
-.navbar button {
   all: unset;
-  margin-right: 1em;
-  background-color: white;
-  padding: .4em 1em;
-  font-weight: 600;
-  letter-spacing: .02em;
-  border-radius: 5px;
+  padding: .8em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   cursor: pointer;
+  -webkit-transition: background 200ms ease;
+  transition: background 200ms ease;
+  position: relative;
+  height: 100%;
+  margin: .15em 0;
+}
+
+.navbar ul li a:not(.active):hover, .navbar ul li button:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar ul li a:not(.active):hover > .info, .navbar ul li button:not(.active):hover > .info {
+  visibility: visible;
+}
+
+.navbar ul li a.active, .navbar ul li button.active {
+  background-color: #2489c0;
+}
+
+.navbar ul li a svg, .navbar ul li button svg {
+  font-size: 1.5em;
+}
+
+.navbar ul li a .info, .navbar ul li button .info {
+  position: absolute;
+  visibility: hidden;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 130%);
+          transform: translate(-50%, 130%);
+  -webkit-transition: visibility 10ms ease 250ms;
+  transition: visibility 10ms ease 250ms;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: black;
+  font-size: .9em;
+  font-weight: 300;
+  text-align: center;
+  padding: .3em .5em;
+  border-radius: 5px;
+}
+
+.navbar ul li a .info:hover, .navbar ul li button .info:hover {
+  display: none;
+}
+
+.navbar ul li:nth-child(3) {
+  margin-left: auto;
+}
+
+.navbar ul li.user a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+  padding: .25em .5em;
+  margin: .25em;
+  border-radius: 25px;
+  border: 2px solid #2489c0;
+}
+
+.navbar ul li.user img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
 }
 /*# sourceMappingURL=Navbar.css.map */

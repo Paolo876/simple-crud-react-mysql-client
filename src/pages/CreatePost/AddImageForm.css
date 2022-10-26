@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.add-image-form {
+  max-width: 450px;
+  max-height: 400px;
+  margin: 0 auto;
+  border: 1px dotted #2489c0;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.add-image-form img {
+  height: auto;
+  width: auto;
+}
+
+.add-image-form button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #2489c0;
+  background-color: #d6d6d6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: .75;
+}
+
+.add-image-form button:hover {
+  opacity: 1;
+}
+/*# sourceMappingURL=AddImageForm.css.map */

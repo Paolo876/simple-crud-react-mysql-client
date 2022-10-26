@@ -2,13 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserCardListItem from '../../components/UserCardListItem/UserCardListItem';
 import { useFriendsContext } from "../../hooks/useFriendsContext";
+import getUserStatus from '../../utils/getUserStatus';
 import "./FriendsList.scss";
-
-const getUserStatus = (isLoggedIn, userStatus) => {
-  if(isLoggedIn && userStatus === "online") return userStatus;
-  if(isLoggedIn && userStatus === "idle") return userStatus;
-  return "invisible";
-}
 
 export default function FriendsList() {
   const navigate = useNavigate();
@@ -26,6 +21,7 @@ export default function FriendsList() {
             key={item.id} 
             onClick={() => navigate(`/profile/${item.id}`)}
             status={getUserStatus(item.isLoggedIn, item.userStatus) }
+            source={"user-navigation"}
             />)
           )}
       </ul>

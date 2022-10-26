@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.user-card-list-item button {
+  all: unset;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  width: 100%;
+  padding: .25em;
+  border-radius: 10px;
+}
+
+.user-card-list-item button img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.user-card-list-item button img.online {
+  border: 2px solid green;
+}
+
+.user-card-list-item button img.idle {
+  border: 2px solid #de9000;
+  opacity: .85;
+}
+
+.user-card-list-item button img.invisible {
+  border: 2px solid grey;
+  opacity: .65;
+}
+
+.user-card-list-item button p {
+  font-size: .9em;
+  letter-spacing: .02em;
+}
+
+.user-card-list-item button p small {
+  margin-left: .25em;
+  font-weight: 500;
+}
+
+.user-card-list-item button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-card-list-item button .chat-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.user-card-list-item button .chat-item .username {
+  font-weight: 500;
+}
+
+.user-card-list-item button .chat-item .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-top: .10em;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-card-list-item button .chat-item .message p {
+  font-size: .8em;
+  opacity: .75;
+  font-weight: 300;
+}
+
+.user-card-list-item button .chat-item .message p:first-child {
+  max-width: 18ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.user-card-list-item button .chat-item.unread .username {
+  font-weight: 600;
+  font-size: .95em;
+  letter-spacing: .025em;
+}
+
+.user-card-list-item button .chat-item.unread .message p:first-child {
+  opacity: 1;
+  font-weight: 500;
+  font-size: .85em;
+  color: #2489c0;
+}
+
+.user-card-list-item button.unread-container {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/*# sourceMappingURL=UserCardListItem.css.map */

@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&family=Quicksand:wght@300;500;600&display=swap");
+.post-footer {
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  background-color: #14a190;
+  padding: 1.2em;
+  color: white;
+  gap: 1em;
+  font-size: .8em;
+  letter-spacing: .01em;
+}
+
+.post-footer .likes {
+  margin-left: .5em;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5em;
+}
+
+.post-footer .likes button svg {
+  font-size: 2em;
+}
+
+.post-footer .likes button:hover {
+  color: #2489c0;
+  -webkit-filter: brightness(160%);
+          filter: brightness(160%);
+}
+
+.post-footer .likes button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.post-footer .likes button.disabled-like-btn {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.post-footer span {
+  font-weight: 300;
+  font-style: italic;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .75em;
+}
+
+.post-footer span button {
+  font-weight: 400;
+  font-style: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .25em;
+}
+
+.post-footer span button img {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.post-footer span button:hover {
+  color: #d6d6d6;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+.post-footer p {
+  font-weight: 300;
+}
+/*# sourceMappingURL=PostFooter.css.map */

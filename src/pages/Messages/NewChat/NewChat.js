@@ -76,6 +76,7 @@ export default function NewChat() {
           status={getUserStatus(item.isLoggedIn, item.userStatus)}
           showName={true}
           key={item.id}
+          source={"user-navigation"}
           />)}
         {isLoading && <LoadingSpinner/>}
 

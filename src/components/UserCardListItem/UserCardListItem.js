@@ -7,7 +7,6 @@ import "./UserCardListItem.scss";
 
 export default function UserCardListItem({ userInformation, username, onClick, status, showName=false, chat=null, isLastMessageRead=null, source}) {
   const parsedInformation = userInformation && JSON.parse(userInformation);
-
   if(source === "user-navigation") return (
     <li className='user-card-list-item'>
       <button onClick={onClick}>

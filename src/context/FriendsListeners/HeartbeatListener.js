@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { FriendsContext } from "../FriendsContext";
 import usePrevious from "../../hooks/usePrevious";
 import { usersSocket } from "../../variables";
@@ -11,9 +11,8 @@ export default function HeartbeatListener({ heartbeat, setHeartbeat }) {
       if(isHeartbeatEnabled){
         const interval = setInterval(() => usersSocket.emit("heartbeat"), 45000) //emit heartbeat every 30secs
         usersSocket.on("heartbeat", data => setHeartbeat(data));
-        return () => {
-          clearInterval(interval);
-        }
+
+        return () => clearInterval(interval);
       } else {
         usersSocket.off("heartbeat");
         dispatch({type: "TOGGLE_HEARTBEAT", payload: false});

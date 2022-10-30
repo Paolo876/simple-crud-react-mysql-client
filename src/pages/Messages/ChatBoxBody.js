@@ -52,6 +52,7 @@ export default function ChatBoxBody({ setChatList, chatList }) {
     //leave room on unmount
     return () => {
       chatSocket.emit('leave', {room: chatRoomId, user: user.id});
+      setMessages(null)
     }
   }, [chatRoomId]);
 

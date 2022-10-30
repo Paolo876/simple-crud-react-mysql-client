@@ -1,0 +1,153 @@
+@import "../../../../variables.scss";
+
+.private-chat-room {
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+    min-width: 280px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 15px;
+    height: 100%;
+    font-family: $secondary-font;
+    h5 {
+        font-size: 1em;
+    }
+    .user-info{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+        margin: 2em.5em;
+        .image-container {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            &.online{
+                border: 2px solid green;
+            }
+            &.idle{
+                border: 2px solid rgb(222, 144, 0);
+                opacity: .85;
+
+            }
+            &.invisible{
+                border: 2px solid grey;
+                opacity: .65;
+            }
+            img{
+                height: auto;
+                width: auto;
+            }
+        }
+        button {
+            margin-top: 1em;
+            font-weight: 600;
+            letter-spacing: .025em;
+            font-size: 1.1em;
+            color: $secondary-color;
+        }
+        p {
+            font-weight: 400;
+            color: initial;
+            opacity: .7;
+            margin-top: .5em;
+        }
+    }
+    .status {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .status-container {
+            display: flex;
+            flex-direction: row;
+            margin-top: .5em;
+            p {
+                margin-right: .75em;
+                font-size: .95em;
+                letter-spacing: .02em;
+                font-weight: 400;
+                opacity: .8;
+                &.not-friends {
+                    font-style: italic;
+                    opacity: .6;
+                }
+            }
+            .icon {
+                display: flex;
+                height: 100%;
+                &.online{
+                    color:green;
+                }
+                &.idle{
+                    color: rgb(222, 144, 0);
+                    opacity: .85;
+        
+                }
+                &.invisible{
+                    color: grey;
+                    opacity: .65;
+                }
+                svg {
+                    font-size: .8em;
+                    display: flex;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .member-relationship {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 1.5em;
+        p {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            letter-spacing: .025em;
+            font-family: $secondary-font;
+            font-size: 1em;
+            opacity: .8;
+            margin-top: .5em;
+            &.not-friends{
+                font-size: .9em;
+                font-style: italic;
+                font-weight: 400;
+            }
+            svg {
+                font-size: 1em;
+                margin-right: .5em;
+            }
+        }
+    }
+    .actions {
+        margin-top: 3em;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        button{
+            display: flex;
+            flex-direction: row;
+            color: $secondary-color;
+            align-items: center;
+            font-size: 1.05em;
+            padding: .25em .10em;
+            border-radius: 10px;
+            svg{
+                font-size: 1.8em;
+            }
+            p {
+                margin-left: .75em;
+                letter-spacing: .025em;
+                font-weight: 400;
+                opacity: .6;
+            }
+            &:hover{
+                background-color: rgba(255, 255, 255, 0.25);
+            }
+        }
+    }
+
+}

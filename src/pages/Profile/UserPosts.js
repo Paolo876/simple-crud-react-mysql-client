@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import "./UserPosts.scss";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PostsList from './PostsList';
-
+import axios from 'axios';
+import { domain } from '../../variables';
 const sortOptions = [
   { value: 'recent', name: "Most Recent"},
   { value: 'popular', name: "Most Popular"},
@@ -14,13 +15,25 @@ const filterOptions = [
   { value: 'private', name: "Private"},
 ];
 
-export default function UserPosts({ posts }) {
+export default function UserPosts({ id, setPostsLength }) {
   const [ sort, setSort ] = useState(sortOptions[0])
   const [ filter, setFilter ] = useState(filterOptions[0])
   const [ showSortSelector, setShowSortSelector ] = useState(false);
   const [ showFilterSelector, setShowFilterSelector ] = useState(false);
-  const [ updatedPosts, setUpdatedPosts ] = useState(posts);
+  const [ posts, setPosts ] = useState(null);
+  const [ error, setError ] = useState(null);
 
+  useEffect(() => {
+    // get user posts
+    axios.get(`${domain}/posts/user/${id}`).then(res => {
+      if(!res.data.error){
+        setPosts(res.data)
+        setPostsLength(res.data.length)
+      } else {
+        setError(res.data.error)
+      }
+    });
+  }, [id])
   const hideSelectors = () => {
     setShowFilterSelector(false)
     setShowSortSelector(false)
@@ -31,8 +44,9 @@ export default function UserPosts({ posts }) {
     if(selector === "filter") setFilter(option);
     hideSelectors();
   }
+  
   useEffect(() => {
-    console.log(sort.value, filter.value)
+    // console.log(sort.value, filter.value)
   }, [sort, filter]);
 
   return (
@@ -53,7 +67,7 @@ export default function UserPosts({ posts }) {
           </ul>} 
         </div>
       </div>
-      <PostsList posts={updatedPosts}/>
+      {posts && <PostsList posts={posts}/>}
     </div>
   )
 }

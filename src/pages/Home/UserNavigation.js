@@ -14,53 +14,39 @@ import FriendsList from './FriendsList';
 import FriendRequestsList from './FriendRequestsList';
 
 export default function UserNavigation() {
-  const { user } = useAuthContext();
-  const [ status, setStatus ] = useState('invisible');
+  const { user, userStatus } = useAuthContext();
+  // const [ status, setStatus ] = useState('invisible');
   const [ showSelector, setShowSelector ] = useState(false);
-  const [ newFriendRequest, setNewFriendRequest] = useState(null);
-
+  // const [ newFriendRequest, setNewFriendRequest] = useState(null);
   useEffect(() => {
-    //get current status of user  (move to userAuth)
-    axios.get(`${domain}/auth/status/`, {
-      headers: {
-        accessToken: sessionStorage.getItem("accessToken")
-      }
-    }).then( res => {
-      setStatus(res.data.userStatus)
-    })
+    // //get current status of user  (move to userAuth)
+    // axios.get(`${domain}/auth/status/`, {
+    //   headers: {
+    //     accessToken: sessionStorage.getItem("accessToken")
+    //   }
+    // }).then( res => {
+    //   setStatus(res.data.userStatus)
+    // })
 
     //listen to new friend requests (socketio)
-    usersSocket.on("newRequest", data => setNewFriendRequest(data))
+    // usersSocket.on("newRequest", data => setNewFriendRequest(data))
   }, [])
-
-  //run on new friend request
-  // useEffect(() => {
-  //   if(newFriendRequest){
-  //     let friend = newFriendRequest;
-  //     if(newFriendRequest.action === "add"){
-  //       friend.relationship = {status: 'pending'}
-  //       setFriendsList(prevState => [...prevState, friend])
-  //     }
-  //     if(newFriendRequest.action === "cancel"){
-  //       setFriendsList(prevState => prevState.filter(item => item.id !== friend.id))
-  //     }
-  //   }
-  // }, [newFriendRequest]);
 
   //handle user status change (move to userAuth)
   const changeUserStatus = (_status) => {
+    usersSocket.emit("statusChange", {id: user.id, userStatus: _status})
     setShowSelector(false)
-    axios.put(`${domain}/user-updates/user-status`, {userStatus: _status}, {
-        headers: {
-          accessToken: sessionStorage.getItem("accessToken")
-        },
-      }).then( res => setStatus(res.data.userStatus) )
+    // axios.put(`${domain}/user-updates/user-status`, {userStatus: _status}, {
+    //     headers: {
+    //       accessToken: sessionStorage.getItem("accessToken")
+    //     },
+    //   }).then( res => setStatus(res.data.userStatus) )
   }
   return (
     <div className='user-navigation'>
         {showSelector && <div className="backdrop" onClick={() => setShowSelector(false)}></div>}
         <button className="user-info item">
-            <div className={`user-avatar ${status}`}>
+            <div className={`user-avatar ${userStatus}`}>
                 {user.userInformation.imageData ? 
                     <IKImage 
                     src={user.userInformation.imageData.photoURL} alt="user avatar"
@@ -79,7 +65,7 @@ export default function UserNavigation() {
             </div>
         </button>
         <div className="status-select">
-            <span onClick={() => setShowSelector(true)} className="status">Status: <p>{status}</p> <KeyboardArrowDownIcon className={`${showSelector ? 'active' : ''}`}/></span>
+            <span onClick={() => setShowSelector(true)} className="status">Status: <p>{userStatus}</p> <KeyboardArrowDownIcon className={`${showSelector ? 'active' : ''}`}/></span>
             {showSelector && <ul>
                 <li onClick={() => changeUserStatus("online")}><CircleIcon className='online'/> online</li>
                 <li onClick={() => changeUserStatus("idle")}><NightsStayIcon className='idle'/> idle</li>

@@ -39,7 +39,7 @@
         .username-container{
             display: flex;
             flex-direction: column;
-            gap: .3em;
+            gap: .1em;
             p{
                 &:first-child{
                     font-family: $secondary-font;
@@ -53,6 +53,47 @@
                     letter-spacing: .02em;
                     opacity: .75;
 
+                }
+            }
+            .status-container {
+                display: flex;
+                flex-direction: row;
+                margin-top: .5em;
+                background-color: rgba(0,0,0,0.1);
+                width: fit-content;
+                padding: .2em .5em .15em .5em;
+                border-radius: 10px;
+                p {
+                    margin-right: .25em;
+                    font-size: .9em;
+                    letter-spacing: .02em;
+                    font-weight: 400;
+                    opacity: .8;
+                    &.not-friends {
+                        font-style: italic;
+                        opacity: .6;
+                    }
+                }
+                .icon {
+                    display: flex;
+                    height: 100%;
+                    &.online{
+                        color:green;
+                    }
+                    &.idle{
+                        color: rgb(222, 144, 0);
+                        opacity: .85;
+            
+                    }
+                    &.invisible{
+                        color: grey;
+                        opacity: .65;
+                    }
+                    svg {
+                        font-size: .65em;
+                        display: flex;
+                        height: 100%;
+                    }
                 }
             }
         }
@@ -81,6 +122,7 @@
     .user-content {
         display: flex;
         flex-direction: row;
+        align-items: flex-end;
         gap: 3em;
         margin-top: 1em;
         p{

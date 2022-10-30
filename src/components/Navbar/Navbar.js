@@ -12,6 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import defaultAvatar from "../../assets/default-profile.png";
 import ChatIcon from '@mui/icons-material/Chat';
 import "./Navbar.scss";
+import SearchInput from './SearchInput';
 
 export default function Navbar() {
   const { user } = useAuthContext();
@@ -22,8 +23,8 @@ export default function Navbar() {
         {user && user.userInformation && <>
           <li><NavLink to="/"><HomeIcon/><span className="info">Home</span></NavLink></li>
           <li><NavLink to="/create-post"><PostAddIcon/><span className="info">Create Post</span></NavLink></li>
+          <li><SearchInput/></li>
           <li><NavLink to={`/messages`}><ChatIcon/><span className="info">Messages</span></NavLink></li>
-
           <li className="user">
             <NavLink to={`/profile/${user.id}`}>
               {user.userInformation.imageData ? 

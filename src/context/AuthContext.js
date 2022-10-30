@@ -20,6 +20,8 @@ export const authReducer = (state, action) => {
       } else {
         return { ...state, isProfileSetup: action.payload }
       }
+    case "UPDATE_USERSTATUS":
+      return {...state, userStatus: action.payload}
     case 'AUTH_IS_READY':
       return { ...state, user: action.payload, authIsReady: true }
     default:
@@ -27,12 +29,12 @@ export const authReducer = (state, action) => {
   }
 }
 
-
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { 
     user: null,
     authIsReady: false,
     isProfileSetup: false,
+    userStatus: ""
   })
 
   // check for accessToken saved on inital load
@@ -56,7 +58,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
-      { children }
+      <>{ children }</>
     </AuthContext.Provider>
   )
 

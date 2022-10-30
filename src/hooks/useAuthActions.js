@@ -29,6 +29,7 @@ export default function useAuthActions() {
             setError(res.data.error)
         } else {
             if(res.data.userInformation) dispatch({type: "IS_PROFILE_SETUP", payload: true});
+            console.log(res.data)
             dispatch({type: 'LOGIN', payload: res.data})
         }
         setIsLoading(false)
@@ -38,24 +39,6 @@ export default function useAuthActions() {
   // updated logout function --handled by socketio. user db is updated on serverside 
   const logout = (url, data) => {
     dispatch({type: "LOGOUT"})
-
-    // setIsLoading(true);
-    // setError(null);
-    // axios.put(url, data, {
-    //   headers: {
-    //     accessToken: sessionStorage.getItem("accessToken")
-    //   }
-    // })
-    // .then( res => {
-      
-    //   if(res.data.error){
-    //     setError(res.data.error)
-    //   } else {
-    //     dispatch({type: "LOGOUT"})
-    //   }
-    //   setIsLoading(false);
-    // })
-    // .catch( err => console.log(err.message))
   }
 
   const signup = (url, data) => {

@@ -29,7 +29,6 @@ export default function useAuthActions() {
             setError(res.data.error)
         } else {
             if(res.data.userInformation) dispatch({type: "IS_PROFILE_SETUP", payload: true});
-            console.log(res.data)
             dispatch({type: 'LOGIN', payload: res.data})
         }
         setIsLoading(false)

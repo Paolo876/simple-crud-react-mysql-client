@@ -5,7 +5,8 @@ import { domain } from '../../variables';
 import PostItem from '../../components/PostItem/PostItem';
 
 //media
-import AddIcon from '@mui/icons-material/Add';
+// import AddIcon from '@mui/icons-material/Add';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 import "./PostsList.scss";
 
 
@@ -54,11 +55,9 @@ export default function PostsList() {
 
   return (
     <ul className='posts-list'>
-      <li 
-        onClick={() => navigate(`/create-post`)}
-        className="create-post-item"
-        ><span>Create New Post</span>
-        <AddIcon/>
+      <li onClick={() => navigate(`/create-post`)} className="create-post-item">
+        <span>Create New Post</span>
+        <PostAddIcon/>
       </li>
       {postsList && postsList.map( item => <PostItem item={item} handleLikeClick={handleLikeClick} key={item.id}/>)}
     </ul>

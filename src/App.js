@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Navbar from "./components/Navbar/Navbar";
 import './App.scss';

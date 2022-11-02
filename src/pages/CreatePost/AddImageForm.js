@@ -11,6 +11,7 @@ export default function AddImageForm({imageData, handleRemoveImage}) {
                     transformation={[{ height: 400, width: 'auto' }]}
                     loading="lazy"   
                     height="250"
+                    
           />
           <button type="button" onClick={handleRemoveImage}><CloseIcon/></button>
     </div>

@@ -77,6 +77,7 @@ export default function CreatePost() {
             setIsLoading(false);
         });
     }
+
   return (
     <PageContainer>
         <div className='create-post'>
@@ -132,6 +133,7 @@ export default function CreatePost() {
                                         folder={`/simple-crud-react-mysql/post-images`}
                                         onSuccess={data => setImageData({fileId: data.fileId, name: data.name, photoURL: data.url})}
                                         onChange={() => setImageLoading(true)}
+                                        accept="image/png, image/jpeg"
                                     />
                                 </label>}
                             </li>

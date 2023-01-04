@@ -24,12 +24,12 @@ img, picture {
   max-width: 100%;
   display: block;
 }
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
+// input,
+// button,
+// textarea,
+// select {
+//   font: inherit;
+// }
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
@@ -58,20 +58,20 @@ button:disabled{
   opacity: .75;
 }
 
-input, textarea {
-  all: unset;
-  border: 1px solid $primary-color;
-  border-radius: 5px;
-  font-size: 1.1em;
-  font-weight: 300;
-  padding: .5em;
-  box-sizing: border-box;
+// input, textarea {
+//   all: unset;
+//   border: 1px solid $primary-color;
+//   border-radius: 5px;
+//   font-size: 1.1em;
+//   font-weight: 300;
+//   padding: .5em;
+//   box-sizing: border-box;
 
-  &:focus{
-    border: 2px solid $primary-color;
+//   &:focus{
+//     border: 2px solid $primary-color;
     
-  }
-}
+//   }
+// }
 textarea {
   display: inline-block;
   white-space: pre-wrap;

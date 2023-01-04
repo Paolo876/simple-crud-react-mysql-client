@@ -4,7 +4,9 @@ import { domain } from '../../variables';
 // import "./Login.scss";
 import useAuthActions from '../../hooks/useAuthActions';
 import PageContainer from '../../components/PageContainer/PageContainer';
-import { Container, Typography, Paper, Button, FormControl } from '@mui/material';
+import { Container, Typography, Paper, Button, FormControl, InputLabel, Input, TextField } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export default function Login() {
     const { login, isLoading, error} = useAuthActions();
     const navigate = useNavigate();
@@ -18,10 +20,18 @@ export default function Login() {
   return (
     <PageContainer>
         <Container>
-            <Paper className='login-page'>
-            <Typography variant="h4" fontWeight={600}>Login</Typography>
+            <Paper className='login-page' sx={{py: 5, px: 10, width: "fit-content", mx: "auto"}}>
+            <Typography variant="h4" fontWeight={600} mb={5}><LoginIcon style={{verticalAlign:"middle"}} sx={{mr: 1}} fontSize="large"/> Login</Typography>
                 {/* <h3>LOGIN</h3> */}
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", my: 5}}>
+                    <TextField 
+                        id="username" 
+                        label={<p><AccountCircleIcon 
+                        style={{verticalAlign:"middle"}} sx={{mr: 1}}/> Username</p>} 
+                        value={username} 
+                        variant="outlined" 
+                        onChange={e => setUsername(e.target.value)}
+                    />
                     <label>
                         <span>Username:</span>
                         <input 

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Navbar from "./components/Navbar/Navbar";
@@ -16,7 +15,6 @@ import Messages from "./pages/Messages/Messages";
 
 function App() {
   const { user, authIsReady, isProfileSetup } = useAuthContext();
-  const [ socket, setSocket ] = useState(null)
   return (
     <div className="App">
       {authIsReady &&

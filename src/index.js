@@ -5,6 +5,8 @@ import './index.scss';
 import App from './App';
 import { AuthContextProvider } from './context/AuthContext';
 import { FriendsContextProvider } from './context/FriendsContext';
+import { theme } from "./materialTheme";
+import { ThemeProvider } from '@mui/material';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +14,9 @@ root.render(
     <BrowserRouter>
       <AuthContextProvider>
         <FriendsContextProvider>
-          <App />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
         </FriendsContextProvider>
       </AuthContextProvider>
     </BrowserRouter>

@@ -8,7 +8,7 @@ import { FriendsContextProvider } from './context/FriendsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
         <FriendsContextProvider>
@@ -16,7 +16,7 @@ root.render(
         </FriendsContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
 
 

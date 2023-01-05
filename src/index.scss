@@ -33,30 +33,30 @@ img, picture {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-button {
-  background-color: transparent;
-  border-width: 0;
-  font-family: inherit;
-  font-size: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  padding: 0;
-  color: inherit;
-  cursor: pointer;
+// button {
+//   background-color: transparent;
+//   border-width: 0;
+//   font-family: inherit;
+//   font-size: inherit;
+//   font-style: inherit;
+//   font-weight: inherit;
+//   line-height: inherit;
+//   padding: 0;
+//   color: inherit;
+//   cursor: pointer;
 
-  &.submit-btn{
-    background-color: $secondary-color;
-    color: white;
-    font-weight: 600;
-    font-family: $primary-font;
-    letter-spacing: .05em;
-  }
-}
-button:disabled{
-  cursor: not-allowed;
-  opacity: .75;
-}
+//   &.submit-btn{
+//     background-color: $secondary-color;
+//     color: white;
+//     font-weight: 600;
+//     font-family: $primary-font;
+//     letter-spacing: .05em;
+//   }
+// }
+// button:disabled{
+//   cursor: not-allowed;
+//   opacity: .75;
+// }
 
 // input, textarea {
 //   all: unset;

@@ -44,8 +44,8 @@ export default function Login() {
                             sx={{my:2, minWidth: "320px"}}
                         />
                         {error && <Alert severity="error">{error}</Alert>}
-                        {!isLoading && <Button variant="contained" type="button" size="large" sx={{ mt: 5 }}>Login</Button>}
-                        {isLoading && <Button variant="contained" type="button" size="large" sx={{ mt: 5 }} disabled>LOGGING IN...</Button>}
+                        {!isLoading && <Button variant="contained" type="submit" size="large" sx={{ mt: 5 }}>Login</Button>}
+                        {isLoading && <Button variant="contained" type="submit" size="large" sx={{ mt: 5 }} disabled>LOGGING IN...</Button>}
                     </form>
                 <Typography variant="body2" mt={4}>Not a member yet? <Button  to="/signup" LinkComponent={Link} sx={{textTransform: "none"}}>Click here to signup.</Button></Typography>
             </Paper>

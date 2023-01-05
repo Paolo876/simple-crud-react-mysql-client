@@ -28,7 +28,17 @@ export default function Signup() {
     
   return (
     <PageContainer>
-        <Container sx={{display: 'flex', justifyContent:'center', alignItems: "center", height: "70%"}}>
+        <Container sx={{display: 'flex', justifyContent:'center', alignItems: "center", height: "95%"}}>
+            <Paper sx={{p:2, background: "none", display: {xs: "none", md: "initial"}}} elevation={0}>
+                <Typography variant="h4" mb={3} sx={{alignSelf: "flex-start"}}>Welcome to Moby!</Typography>
+                <Typography variant="subtitle1" mb={2} sx={{alignSelf: "flex-start"}}>
+                    Moby is a social media concept web app that has the features of a conventional social media website and application. 
+                    <br/>This includes the implementation of CRUD operations and a realtime database management system (chat, friends' status, notifications) using socket.io.
+                </Typography>
+                <Typography variant="subtitle2" mb={4} sx={{alignSelf: "flex-start"}}>
+                    Created using ReactJS, ReduxJSToolkit, ExpressJS, NodeJS, MySQL, Socket.io, and other related libraries.
+                </Typography>
+            </Paper>
             <Paper sx={{py: 5, px: {xs: 2, md:8}, width: "fit-content", mx: "auto"}} elevation={4}>
                 <Typography variant="h4" fontWeight={700} mb={4} letterSpacing={2}>Create an Account</Typography>
                 <Formik  
@@ -71,7 +81,7 @@ export default function Signup() {
                         {isLoading && <Button variant="contained" type="submit" size="large" sx={{ mt: 5 }} disabled>Signing up...</Button>}
                     </Form>
                 </Formik>
-                <Typography variant="body2" mt={4}>Already a member? <Button  to="/signup" LinkComponent={Link} sx={{textTransform: "none"}}>Click here to login.</Button></Typography>
+                <Typography variant="body2" mt={4}>Already a member? <Button  to="/login" LinkComponent={Link} sx={{textTransform: "none"}}>Click here to login.</Button></Typography>
 
             </Paper>
         </Container>

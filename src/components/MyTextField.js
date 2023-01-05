@@ -6,13 +6,11 @@ const MyTextField = ({ label, ...props }) => {
     const [field, meta, helpers] = useField(props);
     return (
       <>
+        { meta.touched && meta.error ? <Alert severity="warning">{meta.error}</Alert> : null }
         <TextField 
             {...field} {...props} 
             label={label} 
         />
-        {meta.touched && meta.error ? (
-          <Alert severity="warning">{meta.error}</Alert>
-        ) : null}
       </>
     );
 };

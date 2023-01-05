@@ -12,7 +12,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export default function Signup() {
     const { signup, error, isLoading } = useAuthActions();
     const navigate = useNavigate();
-    // const [field, meta, helpers] = useField(props);
 
     const initialValues = {
         username: "",
@@ -28,7 +27,7 @@ export default function Signup() {
 
     // const handleSubmit = (data) => signup(`${domain}/auth`, {username: data.username, password: data.password});
     const handleSubmit = (data) => {
-        console.log("asdasdd")
+        console.log(data)
     };
     
   return (
@@ -42,31 +41,15 @@ export default function Signup() {
                     validationSchema={validationSchema}
                 >
                     <Form style={{display: "flex", flexDirection: "column", my: 5}}>
-                    <MyTextField id="username" 
-                                name="username"
-                                type="text" label={<p><AccountCircleIcon style={{verticalAlign:"middle"}} sx={{mr: 1}}/>Username</p>} variant="outlined" sx={{my:2, minWidth: "320px"}}/>
-                        {/* <TextField 
-                                id="username" 
-                                name="username"
-                                type="text" 
-                                label={<p><AccountCircleIcon style={{verticalAlign:"middle"}} sx={{mr: 1}}/>Username</p>} 
-                                // value={username} 
-                                variant="outlined" 
-                                // onChange={e => setUsername(e.target.value)}
-                                required
-                                sx={{my:2, minWidth: "320px"}}
-                                
-                            /> */}
-                        {/* <label> */}
-                            {/* <span>Username:</span> */}
-                            {/* <ErrorMessage name="username">{msg => <p className='error'>**{msg}</p>}</ErrorMessage> */}
-                            {/* <Field 
-                                id="username" 
-                                name="username" 
-                                type="text"
-                                // component={<>asd</>}
-                            /> */}
-                        {/* </label> */}
+                        <MyTextField 
+                            id="username" 
+                            name="username"
+                            type="text" 
+                            label={<p><AccountCircleIcon style={{verticalAlign:"middle"}} sx={{mr: 1}}/>Username</p>} 
+                            variant="outlined" 
+                            sx={{my:2, minWidth: "320px"}}
+                        />
+
                         <label>
                             <span>Password:</span>
                             <ErrorMessage name="password">{msg => <p className='error'>**{msg}</p>}</ErrorMessage>

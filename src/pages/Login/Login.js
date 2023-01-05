@@ -7,6 +7,7 @@ import { Container, Typography, Paper, Button, TextField, Alert } from '@mui/mat
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import KeyIcon from '@mui/icons-material/Key';
+import WelcomeMessage from '../../components/WelcomeMessage';
 
 export default function Login() {
     const { login, isLoading, error } = useAuthActions();
@@ -20,7 +21,7 @@ export default function Login() {
   return (
     <PageContainer>
         <Container sx={{display: 'flex', justifyContent:'center', alignItems: "center", height: "95%"}}>
-
+            <WelcomeMessage/>
             <Paper sx={{py: 5, px: {xs: 2, md:8}, width: "fit-content", mx: "auto"}} elevation={4}>
                 <Typography variant="h4" fontWeight={700} mb={4} letterSpacing={3}><LoginIcon style={{verticalAlign:"middle"}} sx={{mr: 1}} fontSize="large"/>LOGIN</Typography>
                     <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", my: 5}}>
